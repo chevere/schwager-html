@@ -287,7 +287,7 @@ final class Html implements Stringable
             '',
             '',
         ];
-        $query = $this->query($endpoint['query'] ?? []);
+        $query = $this->query($endpoint['request']['query'] ?? []);
         if ($query !== '') {
             $replace[1] = $this->description(
                 'Query',
@@ -295,11 +295,11 @@ final class Html implements Stringable
             )
             . $this->descriptionList($query);
         }
-        $body = $this->body($endpoint['body'] ?? []);
+        $body = $this->body($endpoint['request']['body'] ?? []);
         if ($body !== '') {
             $replace[2] = $this->description(
                 'Body',
-                $this->type($endpoint['body']['type'] ?? '')
+                $this->type($endpoint['request']['body']['type'] ?? '')
             )
             . $body;
         }
