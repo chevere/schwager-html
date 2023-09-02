@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Chevere\SchwagerUI;
 
+use Chevere\Schwager\Spec;
 use Stringable;
 use function Chevere\Standard\arrayUnsetKey;
 
@@ -311,8 +312,8 @@ final class Html implements Stringable
     public function headers(array $headers): string
     {
         $array = [];
-        foreach ($headers as $name => $value) {
-            $array[] = $name . ': ' . $value;
+        foreach ($headers as $value) {
+            $array[] = $value;
         }
 
         return implode('<br>', $array ?? []);

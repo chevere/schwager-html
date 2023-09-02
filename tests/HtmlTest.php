@@ -17,9 +17,9 @@ use Chevere\Http\Methods\GetMethod;
 use Chevere\Http\Methods\PostMethod;
 use Chevere\Router\Endpoint;
 use Chevere\Schwager\DocumentSchema;
-use Chevere\Schwager\Html;
 use Chevere\Schwager\ServerSchema;
 use Chevere\Schwager\Spec;
+use Chevere\SchwagerUI\Html;
 use Chevere\Tests\src\GetController;
 use PHPUnit\Framework\TestCase;
 use function Chevere\Filesystem\fileForPath;
@@ -63,6 +63,6 @@ final class HtmlTest extends TestCase
         $file = fileForPath(__DIR__ . '/HtmlTest.html');
         $file->createIfNotExists();
         $file->put($html->__toString());
-        vdd($html->__toString());
+        // vdd($html->__toString());
     }
 }
