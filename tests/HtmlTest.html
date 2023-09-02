@@ -6,99 +6,101 @@
 <link href="../src/bootstrap/bootstrap.min.css" rel="stylesheet">
 <title>Chevere API</title>
 <style media="all">
-    :root
-    {
-        --bg-GET: var(--bs-primary-bg-subtle);
-        --text-GET: var(--bs-primary-text-emphasis);
-        --border-GET: var(--bs-primary-border-subtle);
+:root
+{
+    --bs-code-color: var(--bs-body-color);
+    --bg-GET: var(--bs-primary-bg-subtle);
+    --text-GET: var(--bs-primary-text-emphasis);
+    --border-GET: var(--bs-primary-border-subtle);
+    --bg-DELETE: var(--bs-danger-bg-subtle);
+    --text-DELETE: var(--bs-danger-text-emphasis);
+    --border-DELETE: var(--bs-danger-border-subtle);
+    --bg-POST: var(--bs-success-bg-subtle);
+    --text-POST: var(--bs-success-text-emphasis);
+    --border-POST: var(--bs-success-border-subtle);
+    --bg-PATCH: var(--bs-warning-bg-subtle);
+    --text-PATCH: var(--bs-warning-text-emphasis);
+    --border-PATCH: var(--bs-warning-border-subtle);
+    --bg-OPTIONS: var(--bs-info-bg-subtle);
+    --text-OPTIONS: var(--bs-info-text-emphasis);
+    --border-OPTIONS: var(--bs-info-border-subtle);
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+code.type {
+    color: #f47c13;
+}
 
-        --bg-DELETE: var(--bs-danger-bg-subtle);
-        --text-DELETE: var(--bs-danger-text-emphasis);
-        --border-DELETE: var(--bs-danger-border-subtle);
+.http-method {
+    border-style: solid;
+    border-width: 1px;
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+.http-method.method-DELETE {
+    background: var(--bg-DELETE);
+    border-color: var(--border-DELETE);
+    color: var(--text-DELETE);
+}
+.http-method.method-GET,
+.http-method.method-HEAD {
+    background: var(--bg-GET);
+    border-color: var(--border-GET);
+    color: var(--text-GET);
+}
 
-        --bg-POST: var(--bs-success-bg-subtle);
-        --text-POST: var(--bs-success-text-emphasis);
-        --border-POST: var(--bs-success-border-subtle);
+.http-method.method-POST {
+    background: var(--bg-POST);
+    border-color: var(--border-POST);
+    color: var(--text-POST);
+}
+.http-method.method-PATCH,
+.http-method.method-PUT {
+    background: var(--bg-PATCH);
+    border-color: var(--border-PATCH);
+    color: var(--text-PATCH);
+}
+.http-method.method-OPTIONS,
+.http-method.method-CONNECT,
+.http-method.method-TRACE {
+    background: var(--bg-OPTIONS);
+    border-color: var(--border-OPTIONS);
+    color: var(--text-OPTIONS);
+}
 
-        --bg-PATCH: var(--bs-warning-bg-subtle);
-        --text-PATCH: var(--bs-warning-text-emphasis);
-        --border-PATCH: var(--bs-warning-border-subtle);
+.badge-key {
+    background-color: var(--bs-secondary-bg-subtle)!important;
+    color: var(--bs-secondary-text-emphasis)!important;
+    border-color: var(--bs-secondary-border-subtle)!important;
+    font-weight: 600!important;
+}
 
-        --bg-OPTIONS: var(--bs-info-bg-subtle);
-        --text-OPTIONS: var(--bs-info-text-emphasis);
-        --border-OPTIONS: var(--bs-info-border-subtle);
-    }
-
-    .http-method {
-        border-style: solid;
-        border-width: 1px;
-        font-weight: 600;
-        font-size: 1rem;
-        white-space: nowrap;
-    }
-    .http-method.method-DELETE {
-        background: var(--bg-DELETE);
-        border-color: var(--border-DELETE);
-        color: var(--text-DELETE);
-    }
-    .http-method.method-GET,
-    .http-method.method-HEAD {
-        background: var(--bg-GET);
-        border-color: var(--border-GET);
-        color: var(--text-GET);
-    }
-
-    .http-method.method-POST {
-        background: var(--bg-POST);
-        border-color: var(--border-POST);
-        color: var(--text-POST);
-    }
-    .http-method.method-PATCH,
-    .http-method.method-PUT {
-        background: var(--bg-PATCH);
-        border-color: var(--border-PATCH);
-        color: var(--text-PATCH);
-    }
-    .http-method.method-OPTIONS,
-    .http-method.method-CONNECT,
-    .http-method.method-TRACE {
-        background: var(--bg-OPTIONS);
-        border-color: var(--border-OPTIONS);
-        color: var(--text-OPTIONS);
-    }
-
-    .badge-key {
-        background-color: var(--bs-secondary-bg-subtle)!important;
-        color: var(--bs-secondary-text-emphasis)!important;
-        border-color: var(--bs-secondary-border-subtle)!important;
-        font-weight: 600!important;
-    }
-
-    .sticky-method {
-        top: 2rem;
-    }
-    .row .fw-normal {
-        text-overflow: ellipsis;
-        overflow: auto;
-    }
-    .row.m-0.p-0 {
-        font-size: 1em;
-    }
-    .row.m-0.p-0 .col-sm-2 {
-        font-weight: normal;
-        text-align: left;
-        overflow: auto;
-        text-overflow: ellipsis;
-    }
-
+.sticky-method {
+    top: calc(3.65em - 1px);
+}
+.row .fw-normal {
+    text-overflow: ellipsis;
+    overflow: auto;
+}
+.row.m-0.p-0 {
+    font-size: 1em;
+}
+.row.m-0.p-0 .col-sm-2 {
+    font-weight: normal;
+    text-align: left;
+    overflow: auto;
+    text-overflow: ellipsis;
+}
 </style>
 <style media="print">
-    .sticky-top {
-        position: static !important;
-    }
-    .collapse {
-        display: block !important;
-    }
+.sticky-top {
+    position: static !important;
+}
+.collapse {
+    display: block !important;
+}
 </style>
 </head>
 <body class="container-xxl">
@@ -133,7 +135,7 @@
     </ul>
 </div>
 
-    <h3 class="sticky-top bg-body pt-1 pb-1 lh-1">/customer/{id}/{name}</h3>
+    <h3 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/customer/{id}/{name}</h3>
 <dl>
     <dt>Name</dt>
     <dd>/customer/{id}/{name}</dd>
@@ -147,7 +149,7 @@
 
     <dl class="row mb-0">
         <dt class="col-sm-2" title="Type">Type</dt>
-<dd class="col-sm-10"><code>string</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">string</code></dd>
 
         <dt class="col-sm-2" title="Regex">Regex</dt>
 <dd class="col-sm-10"><code>^[^/]+$</code></dd>
@@ -162,7 +164,7 @@
 
     <dl class="row mb-0">
         <dt class="col-sm-2" title="Type">Type</dt>
-<dd class="col-sm-10"><code>string</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">string</code></dd>
 
         <dt class="col-sm-2" title="Regex">Regex</dt>
 <dd class="col-sm-10"><code>^[^/]+$</code></dd>
@@ -180,7 +182,7 @@
 <strong>Endpoints</strong>
 <ul class="list-group mb-2 mt-2">
     <li class="list-group-item">
-    <div class="sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".GET-3fee126f4b5cc973f5279390b200096a" aria-expanded="false" aria-controls="GET-3fee126f4b5cc973f5279390b200096a">
+    <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".GET-3fee126f4b5cc973f5279390b200096a" aria-expanded="false" aria-controls="GET-3fee126f4b5cc973f5279390b200096a">
         <div class="me-auto">
             <h4 class="h5 mb-0">Transfer a current representation of the target resource.</h4>
         </div>
@@ -196,16 +198,16 @@
                 <dl class="row mb-0">
                     
                     <dt class="col-sm-2" title="Query">Query</dt>
-<dd class="col-sm-10"><code>array&lt;string&gt;</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">array&lt;string&gt;</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="date">date</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">string</code><dl class="row m-0 p-0"><dt class="col-sm-2" title="description">description</dt>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">string</code><dl class="row m-0 p-0"><dt class="col-sm-2" title="description">description</dt>
 <dd class="col-sm-10">YYYY-MM-DD</dd>
 <dt class="col-sm-2" title="regex">regex</dt>
 <dd class="col-sm-10">^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$</dd>
 </dl>
 </dd>
 <dt class="col-sm-2" title="time">time</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">string</code><span class="badge badge-key">optional</span>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">string</code><span class="badge badge-key">optional</span>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="description">description</dt>
 <dd class="col-sm-10">hh:mm:ss</dd>
 <dt class="col-sm-2" title="regex">regex</dt>
@@ -215,23 +217,23 @@
 </dl>
 
                     <dt class="col-sm-2" title="Body">Body</dt>
-<dd class="col-sm-10"><code>array#map</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="arreglo">arreglo</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">array#map</code><span class="badge badge-key">optional</span>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code><span class="badge badge-key">optional</span>
 </dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="string">string</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">string</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">string</code></dd>
 </dl>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="integer">integer</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">integer</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">integer</code></dd>
 </dl>
 </dl>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="rate">rate</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">float</code><span class="badge badge-key">optional</span>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">float</code><span class="badge badge-key">optional</span>
 </dd>
 </dl>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="hours">hours</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">integer</code><span class="badge badge-key">optional</span>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">integer</code><span class="badge badge-key">optional</span>
 </dd>
 </dl>
 
@@ -246,33 +248,33 @@
     <dd>
         <ul class="list-group mb-2 mt-2">
             <li class="list-group-item bg-secondary bg-opacity-10 py-3">
-    <span class="badge fw-normal fs-6 mb-3 px-2 py-2 fw-semibold text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle">222</span>
+    <div class="badge fw-normal fs-5 mb-3 px-3 py-2 fw-semibold text-body bg-body border border-secondary-subtle">222</div>
 
     <dl class="row mb-0">
     <dt class="col-sm-2" title="Context">Context</dt>
 <dd class="col-sm-10">GetController</dd>
 
     <dt class="col-sm-2" title="Headers">Headers</dt>
-<dd class="col-sm-10">foo: bar<br>esta: wea</dd>
+<dd class="col-sm-10">Content-Type: application/json<br>Foo: Bar</dd>
 
     <dt class="col-sm-2" title="Body">Body</dt>
-<dd class="col-sm-10"><code>array#map</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="test">test</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">string</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">string</code></dd>
 </dl>
 
 </dl>
 
 </li>
 <li class="list-group-item bg-secondary bg-opacity-10 py-3">
-    <span class="badge fw-normal fs-6 mb-3 px-2 py-2 fw-semibold text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle">403</span>
+    <div class="badge fw-normal fs-5 mb-3 px-3 py-2 fw-semibold text-body bg-body border border-secondary-subtle">403</div>
 
     <dl class="row mb-0">
     <dt class="col-sm-2" title="Context">Context</dt>
 <dd class="col-sm-10">GetController</dd>
 
     <dt class="col-sm-2" title="Headers">Headers</dt>
-<dd class="col-sm-10">foo: bar<br>esta: wea</dd>
+<dd class="col-sm-10">Content-Type: application/json<br>Foo: Bar</dd>
 
     
 </dl>
@@ -287,7 +289,7 @@
 
 </ul>
 
-<h3 class="sticky-top bg-body pt-1 pb-1 lh-1">/user/{id}/{name}</h3>
+<h3 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/user/{id}/{name}</h3>
 <dl>
     <dt>Name</dt>
     <dd>/user/{id}/{name}</dd>
@@ -301,7 +303,7 @@
 
     <dl class="row mb-0">
         <dt class="col-sm-2" title="Type">Type</dt>
-<dd class="col-sm-10"><code>string</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">string</code></dd>
 
         <dt class="col-sm-2" title="Regex">Regex</dt>
 <dd class="col-sm-10"><code>^[^/]+$</code></dd>
@@ -316,7 +318,7 @@
 
     <dl class="row mb-0">
         <dt class="col-sm-2" title="Type">Type</dt>
-<dd class="col-sm-10"><code>string</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">string</code></dd>
 
         <dt class="col-sm-2" title="Regex">Regex</dt>
 <dd class="col-sm-10"><code>^[^/]+$</code></dd>
@@ -334,7 +336,7 @@
 <strong>Endpoints</strong>
 <ul class="list-group mb-2 mt-2">
     <li class="list-group-item">
-    <div class="sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".GET-dac1c0cee1c99f3913a79865a72099b4" aria-expanded="false" aria-controls="GET-dac1c0cee1c99f3913a79865a72099b4">
+    <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".GET-dac1c0cee1c99f3913a79865a72099b4" aria-expanded="false" aria-controls="GET-dac1c0cee1c99f3913a79865a72099b4">
         <div class="me-auto">
             <h4 class="h5 mb-0">Transfer a current representation of the target resource.</h4>
         </div>
@@ -350,16 +352,16 @@
                 <dl class="row mb-0">
                     
                     <dt class="col-sm-2" title="Query">Query</dt>
-<dd class="col-sm-10"><code>array&lt;string&gt;</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">array&lt;string&gt;</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="date">date</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">string</code><dl class="row m-0 p-0"><dt class="col-sm-2" title="description">description</dt>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">string</code><dl class="row m-0 p-0"><dt class="col-sm-2" title="description">description</dt>
 <dd class="col-sm-10">YYYY-MM-DD</dd>
 <dt class="col-sm-2" title="regex">regex</dt>
 <dd class="col-sm-10">^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$</dd>
 </dl>
 </dd>
 <dt class="col-sm-2" title="time">time</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">string</code><span class="badge badge-key">optional</span>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">string</code><span class="badge badge-key">optional</span>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="description">description</dt>
 <dd class="col-sm-10">hh:mm:ss</dd>
 <dt class="col-sm-2" title="regex">regex</dt>
@@ -369,23 +371,23 @@
 </dl>
 
                     <dt class="col-sm-2" title="Body">Body</dt>
-<dd class="col-sm-10"><code>array#map</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="arreglo">arreglo</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">array#map</code><span class="badge badge-key">optional</span>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code><span class="badge badge-key">optional</span>
 </dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="string">string</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">string</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">string</code></dd>
 </dl>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="integer">integer</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">integer</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">integer</code></dd>
 </dl>
 </dl>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="rate">rate</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">float</code><span class="badge badge-key">optional</span>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">float</code><span class="badge badge-key">optional</span>
 </dd>
 </dl>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="hours">hours</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">integer</code><span class="badge badge-key">optional</span>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">integer</code><span class="badge badge-key">optional</span>
 </dd>
 </dl>
 
@@ -400,33 +402,33 @@
     <dd>
         <ul class="list-group mb-2 mt-2">
             <li class="list-group-item bg-secondary bg-opacity-10 py-3">
-    <span class="badge fw-normal fs-6 mb-3 px-2 py-2 fw-semibold text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle">222</span>
+    <div class="badge fw-normal fs-5 mb-3 px-3 py-2 fw-semibold text-body bg-body border border-secondary-subtle">222</div>
 
     <dl class="row mb-0">
     <dt class="col-sm-2" title="Context">Context</dt>
 <dd class="col-sm-10">GetController</dd>
 
     <dt class="col-sm-2" title="Headers">Headers</dt>
-<dd class="col-sm-10">foo: bar<br>esta: wea</dd>
+<dd class="col-sm-10">Content-Type: application/json<br>Foo: Bar</dd>
 
     <dt class="col-sm-2" title="Body">Body</dt>
-<dd class="col-sm-10"><code>array#map</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="test">test</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">string</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">string</code></dd>
 </dl>
 
 </dl>
 
 </li>
 <li class="list-group-item bg-secondary bg-opacity-10 py-3">
-    <span class="badge fw-normal fs-6 mb-3 px-2 py-2 fw-semibold text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle">403</span>
+    <div class="badge fw-normal fs-5 mb-3 px-3 py-2 fw-semibold text-body bg-body border border-secondary-subtle">403</div>
 
     <dl class="row mb-0">
     <dt class="col-sm-2" title="Context">Context</dt>
 <dd class="col-sm-10">GetController</dd>
 
     <dt class="col-sm-2" title="Headers">Headers</dt>
-<dd class="col-sm-10">foo: bar<br>esta: wea</dd>
+<dd class="col-sm-10">Content-Type: application/json<br>Foo: Bar</dd>
 
     
 </dl>
@@ -439,7 +441,7 @@
 
 </li>
 <li class="list-group-item">
-    <div class="sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".POST-dfa62aea114df6cf282496ccadb181b5" aria-expanded="false" aria-controls="POST-dfa62aea114df6cf282496ccadb181b5">
+    <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".POST-dfa62aea114df6cf282496ccadb181b5" aria-expanded="false" aria-controls="POST-dfa62aea114df6cf282496ccadb181b5">
         <div class="me-auto">
             <h4 class="h5 mb-0">Perform resource-specific processing on the request payload.</h4>
         </div>
@@ -455,16 +457,16 @@
                 <dl class="row mb-0">
                     
                     <dt class="col-sm-2" title="Query">Query</dt>
-<dd class="col-sm-10"><code>array&lt;string&gt;</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">array&lt;string&gt;</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="date">date</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">string</code><dl class="row m-0 p-0"><dt class="col-sm-2" title="description">description</dt>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">string</code><dl class="row m-0 p-0"><dt class="col-sm-2" title="description">description</dt>
 <dd class="col-sm-10">YYYY-MM-DD</dd>
 <dt class="col-sm-2" title="regex">regex</dt>
 <dd class="col-sm-10">^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$</dd>
 </dl>
 </dd>
 <dt class="col-sm-2" title="time">time</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">string</code><span class="badge badge-key">optional</span>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">string</code><span class="badge badge-key">optional</span>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="description">description</dt>
 <dd class="col-sm-10">hh:mm:ss</dd>
 <dt class="col-sm-2" title="regex">regex</dt>
@@ -474,23 +476,23 @@
 </dl>
 
                     <dt class="col-sm-2" title="Body">Body</dt>
-<dd class="col-sm-10"><code>array#map</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="arreglo">arreglo</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">array#map</code><span class="badge badge-key">optional</span>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code><span class="badge badge-key">optional</span>
 </dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="string">string</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">string</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">string</code></dd>
 </dl>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="integer">integer</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">integer</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">integer</code></dd>
 </dl>
 </dl>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="rate">rate</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">float</code><span class="badge badge-key">optional</span>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">float</code><span class="badge badge-key">optional</span>
 </dd>
 </dl>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="hours">hours</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">integer</code><span class="badge badge-key">optional</span>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">integer</code><span class="badge badge-key">optional</span>
 </dd>
 </dl>
 
@@ -505,33 +507,33 @@
     <dd>
         <ul class="list-group mb-2 mt-2">
             <li class="list-group-item bg-secondary bg-opacity-10 py-3">
-    <span class="badge fw-normal fs-6 mb-3 px-2 py-2 fw-semibold text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle">222</span>
+    <div class="badge fw-normal fs-5 mb-3 px-3 py-2 fw-semibold text-body bg-body border border-secondary-subtle">222</div>
 
     <dl class="row mb-0">
     <dt class="col-sm-2" title="Context">Context</dt>
 <dd class="col-sm-10">GetController</dd>
 
     <dt class="col-sm-2" title="Headers">Headers</dt>
-<dd class="col-sm-10">foo: bar<br>esta: wea</dd>
+<dd class="col-sm-10">Content-Type: application/json<br>Foo: Bar</dd>
 
     <dt class="col-sm-2" title="Body">Body</dt>
-<dd class="col-sm-10"><code>array#map</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="test">test</dt>
-<dd class="col-sm-10"><code class="d-inline-block me-1">string</code></dd>
+<dd class="col-sm-10"><code class="type d-inline-block me-1">string</code></dd>
 </dl>
 
 </dl>
 
 </li>
 <li class="list-group-item bg-secondary bg-opacity-10 py-3">
-    <span class="badge fw-normal fs-6 mb-3 px-2 py-2 fw-semibold text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle">403</span>
+    <div class="badge fw-normal fs-5 mb-3 px-3 py-2 fw-semibold text-body bg-body border border-secondary-subtle">403</div>
 
     <dl class="row mb-0">
     <dt class="col-sm-2" title="Context">Context</dt>
 <dd class="col-sm-10">GetController</dd>
 
     <dt class="col-sm-2" title="Headers">Headers</dt>
-<dd class="col-sm-10">foo: bar<br>esta: wea</dd>
+<dd class="col-sm-10">Content-Type: application/json<br>Foo: Bar</dd>
 
     
 </dl>

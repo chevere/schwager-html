@@ -155,7 +155,7 @@ final class Html implements Stringable
             ];
             $replace = [
                 str_replace('%name%', $name, $this->variableNameHtml),
-                $this->description('Type', $this->code($variable['type'] ?? '')),
+                $this->description('Type', $this->type($variable['type'] ?? '')),
                 $this->description('Regex', $this->code($variable['regex'] ?? '')),
                 $this->description('Description', $variable['description'] ?? ''),
             ];
@@ -179,7 +179,7 @@ final class Html implements Stringable
             }
             $return .= $this->description(
                 $name,
-                $this->code($string['type'], 'd-inline-block me-1')
+                $this->type($string['type'])
                     . $this->optional($string['required'])
                     . $this->descriptionList($properties)
             );
@@ -197,11 +197,9 @@ final class Html implements Stringable
         return '';
     }
 
-    public function type(array $schema): string
+    public function type(string $content): string
     {
-        return <<<HTML
-        <div><code>{$schema['type']}</code></div>
-        HTML;
+        return $this->tag('code', 'type d-inline-block me-1', $content);
     }
 
     public function badge(string $name, string $class = ''): string
@@ -235,7 +233,7 @@ final class Html implements Stringable
                 $return .= $this->descriptionList(
                     $this->description(
                         $property,
-                        $this->code($value['type'], 'd-inline-block me-1')
+                        $this->type($value['type'])
                         . $this->optional($required)
                     ) . $described
                 );
@@ -248,7 +246,7 @@ final class Html implements Stringable
             foreach ($parameters as $pos => $param) {
                 $return .= $this->description(
                     $this->badge((string) $pos, 'badge-key'),
-                    $this->code($param['type'])
+                    $this->type($param['type'])
                     . $this->body($param)
                 );
             }
@@ -260,7 +258,7 @@ final class Html implements Stringable
                 $return .= $this->descriptionList(
                     $this->description(
                         $this->badge($name, 'badge-key'),
-                        $this->code($parameter['type'])
+                        $this->type($parameter['type'])
                         . $this->body($parameter)
                     )
                 );
@@ -293,7 +291,7 @@ final class Html implements Stringable
         if ($query !== '') {
             $replace[1] = $this->description(
                 'Query',
-                $this->code('array&lt;string&gt;')
+                $this->type('array&lt;string&gt;')
             )
             . $this->descriptionList($query);
         }
@@ -301,7 +299,7 @@ final class Html implements Stringable
         if ($body !== '') {
             $replace[2] = $this->description(
                 'Body',
-                $this->code($endpoint['body']['type'] ?? '')
+                $this->type($endpoint['body']['type'] ?? '')
             )
             . $body;
         }
@@ -341,7 +339,7 @@ final class Html implements Stringable
                 if ($body !== '') {
                     $replace[2] .= $this->description(
                         'Body',
-                        $this->code($response['body']['type'] ?? '')
+                        $this->type($response['body']['type'] ?? '')
                         . $this->div($response['body']['description'] ?? '')
                     )
                     . $body;
