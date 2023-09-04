@@ -14,6 +14,8 @@ declare(strict_types=1);
 namespace Chevere\SchwagerUI;
 
 use Chevere\Schwager\Spec;
+use Chevere\Throwable\Exceptions\InvalidArgumentException;
+use Chevere\Throwable\Exceptions\LogicException;
 use Stringable;
 use function Chevere\Standard\arrayUnsetKey;
 
@@ -46,8 +48,6 @@ final class Html implements Stringable
 
     private string $responseListHtml;
 
-    private string $responsesHtml;
-
     private string $endpointHtml;
 
     private string $endpointsHtml;
@@ -60,6 +60,9 @@ final class Html implements Stringable
 
     private string $descriptionList;
 
+    /**
+     * @phpstan-ignore-next-line
+     */
     public function __construct(
         private Spec $spec,
         private array $array = []
@@ -119,7 +122,8 @@ final class Html implements Stringable
 
     public function getTemplate(string $name): string
     {
-        return file_get_contents(self::TEMPLATES_DIR . $name);
+        return file_get_contents(self::TEMPLATES_DIR . $name)
+            ?: throw new LogicException();
     }
 
     public function description(string $title, string $description): string
@@ -143,6 +147,9 @@ final class Html implements Stringable
         );
     }
 
+    /**
+     * @param array<string, array<string, null|string|bool>> $variables
+     */
     public function variables(array $variables): string
     {
         $return = '';
@@ -153,11 +160,17 @@ final class Html implements Stringable
                 '%regex%',
                 '%description%',
             ];
+            /** @var string */
+            $type = $variable['type'] ?? '';
+            /** @var string */
+            $regex = $variable['regex'] ?? '';
+            /** @var string */
+            $description = $variable['description'] ?? '';
             $replace = [
                 str_replace('%name%', $name, $this->variableNameHtml),
-                $this->description('Type', $this->type($variable['type'] ?? '')),
-                $this->description('Regex', $this->code($variable['regex'] ?? '')),
-                $this->description('Description', $variable['description'] ?? ''),
+                $this->description('Type', $this->type($type)),
+                $this->description('Regex', $this->code($regex)),
+                $this->description('Description', $description),
             ];
             $return .= str_replace($search, $replace, $this->variableHtml);
         }
@@ -165,6 +178,9 @@ final class Html implements Stringable
         return str_replace('%variables%', $return, $this->variablesHtml);
     }
 
+    /**
+     * @param array<string, array<string, null|string|bool>> $query
+     */
     public function query(array $query): string
     {
         $return = '';
@@ -172,15 +188,20 @@ final class Html implements Stringable
             $properties = '';
             $map = arrayUnsetKey($string, 'required', 'type');
             foreach ($map as $property => $value) {
+                $property = (string) $property;
                 $properties .= $this->description(
                     $property,
                     (string) ($value ?? '')
                 );
             }
+            /** @var string */
+            $type = $string['type'];
+            /** @var boolean */
+            $required = $string['required'];
             $return .= $this->description(
                 $name,
-                $this->type($string['type'])
-                    . $this->optional($string['required'])
+                $this->type($type)
+                    . $this->optional($required)
                     . $this->descriptionList($properties)
             );
         }
@@ -219,6 +240,9 @@ final class Html implements Stringable
         );
     }
 
+    /**
+     * @phpstan-ignore-next-line
+     */
     public function body(array $body): string
     {
         $type = $body['type'] ?? '';
@@ -274,20 +298,23 @@ final class Html implements Stringable
         return $return;
     }
 
-    public function request(array $endpoint): string
+    /**
+     * @phpstan-ignore-next-line
+     */
+    public function request(array $request): string
     {
         $search = [
             '%headers%',
             '%query%',
             '%body%',
         ];
-        $headers = $this->headers($endpoint['request']['headers'] ?? []);
+        $headers = $this->headers($request['headers'] ?? []);
         $replace = [
             $this->description('Headers', $headers),
             '',
             '',
         ];
-        $query = $this->query($endpoint['request']['query'] ?? []);
+        $query = $this->query($request['query'] ?? []);
         if ($query !== '') {
             $replace[1] = $this->description(
                 'Query',
@@ -295,11 +322,11 @@ final class Html implements Stringable
             )
             . $this->descriptionList($query);
         }
-        $body = $this->body($endpoint['request']['body'] ?? []);
+        $body = $this->body($request['body'] ?? []);
         if ($body !== '') {
             $replace[2] = $this->description(
                 'Body',
-                $this->type($endpoint['request']['body']['type'] ?? '')
+                $this->type($request['body']['type'] ?? '')
             )
             . $body;
         }
@@ -307,6 +334,9 @@ final class Html implements Stringable
         return str_replace($search, $replace, $this->requestHtml);
     }
 
+    /**
+     * @param array<int, string> $headers
+     */
     public function headers(array $headers): string
     {
         $array = [];
@@ -314,9 +344,12 @@ final class Html implements Stringable
             $array[] = $value;
         }
 
-        return implode('<br>', $array ?? []);
+        return implode('<br>', $array);
     }
 
+    /**
+     * @phpstan-ignore-next-line
+     */
     public function responses(array $array): string
     {
         $responses = '';
@@ -375,11 +408,14 @@ final class Html implements Stringable
         return str_replace('%list%', $description, $this->descriptionList);
     }
 
+    /**
+     * @param array<string, array<string, array<string, string>>> $endpoints
+     */
     public function endpoints(string $pathId, array $endpoints): string
     {
         $return = '';
         foreach ($endpoints as $method => $endpoint) {
-            $request = $this->request($endpoint);
+            $request = $this->request($endpoint['request']);
             $responses = $this->responses($endpoint['responses'] ?? []);
             $return .= str_replace(
                 [
