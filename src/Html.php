@@ -19,9 +19,6 @@ use Chevere\Throwable\Exceptions\LogicException;
 use Stringable;
 use function Chevere\Standard\arrayUnsetKey;
 
-/**
- * @codeCoverageIgnore
- */
 final class Html implements Stringable
 {
     public const TEMPLATES_DIR = __DIR__ . '/Template/';
@@ -110,47 +107,10 @@ final class Html implements Stringable
         return $this->html;
     }
 
-    public function div(string $content, string $class = ''): string
-    {
-        return $this->tag('div', $class, $content);
-    }
-
-    public function code(string $content, string $class = ''): string
-    {
-        return $this->tag('code', $class, $content);
-    }
-
-    public function getTemplate(string $name): string
-    {
-        return file_get_contents(self::TEMPLATES_DIR . $name)
-            ?: throw new LogicException();
-    }
-
-    public function description(string $title, string $description): string
-    {
-        if ($description === '') {
-            return '';
-        }
-
-        return str_replace(
-            [
-                '%title%',
-                '%dt%',
-                '%dd%',
-            ],
-            [
-                strip_tags($title),
-                $title,
-                $description,
-            ],
-            $this->descriptionHtml
-        );
-    }
-
     /**
      * @param array<string, array<string, null|string|bool>> $variables
      */
-    public function variables(array $variables): string
+    private function variables(array $variables): string
     {
         $return = '';
         foreach ($variables as $name => $variable) {
@@ -181,7 +141,7 @@ final class Html implements Stringable
     /**
      * @param array<string, array<string, null|string|bool>> $query
      */
-    public function query(array $query): string
+    private function query(array $query): string
     {
         $return = '';
         foreach ($query as $name => $string) {
@@ -209,45 +169,14 @@ final class Html implements Stringable
         return $return;
     }
 
-    public function optional(bool $isRequired): string
-    {
-        if (! $isRequired) {
-            return $this->badge('optional', 'badge-key');
-        }
-
-        return '';
-    }
-
-    public function type(string $content): string
-    {
-        return $this->tag('code', 'type d-inline-block me-1', $content);
-    }
-
-    public function badge(string $name, string $class = ''): string
-    {
-        return str_replace(
-            [
-                '%name%',
-                '%class%',
-            ],
-            [
-                $name,
-                $class !== ''
-                    ? " {$class}"
-                    : '',
-            ],
-            $this->badgeHtml
-        );
-    }
-
     /**
      * @phpstan-ignore-next-line
      */
-    public function body(array $body): string
+    private function body(array $body): string
     {
         $type = $body['type'] ?? '';
         if (is_array($type)) {
-            $type = '';
+            $type = ''; // @codeCoverageIgnore
         }
         $return = '';
         if ($type === '') {
@@ -298,10 +227,46 @@ final class Html implements Stringable
         return $return;
     }
 
+    private function descriptionList(string $description): string
+    {
+
+        if ($description === '') {
+            return ''; // @codeCoverageIgnore
+        }
+
+        return str_replace('%list%', $description, $this->descriptionList);
+    }
+
+    /**
+     * @param array<string, array<string, array<string, string>>> $endpoints
+     */
+    private function endpoints(string $pathId, array $endpoints): string
+    {
+        $return = '';
+        foreach ($endpoints as $method => $endpoint) {
+            $request = $this->request($endpoint['request']);
+            $responses = $this->responses($endpoint['responses'] ?? []);
+            $return .= str_replace(
+                [
+                    '%request.html%', '%responses.html%'],
+                [$request, $responses],
+                $this->endpointHtml
+            );
+            $replace = [
+                '%method%' => $method,
+                '%md5%' => md5($pathId . $method),
+                '%description%' => $endpoint['description'],
+            ];
+            $return = strtr($return, $replace);
+        }
+
+        return str_replace('%endpoints%', $return, $this->endpointsHtml);
+    }
+
     /**
      * @phpstan-ignore-next-line
      */
-    public function request(array $request): string
+    private function request(array $request): string
     {
         $search = [
             '%headers%',
@@ -337,7 +302,7 @@ final class Html implements Stringable
     /**
      * @param array<int, string> $headers
      */
-    public function headers(array $headers): string
+    private function headers(array $headers): string
     {
         $array = [];
         foreach ($headers as $value) {
@@ -350,7 +315,7 @@ final class Html implements Stringable
     /**
      * @phpstan-ignore-next-line
      */
-    public function responses(array $array): string
+    private function responses(array $array): string
     {
         $responses = '';
         foreach ($array as $code => $el) {
@@ -399,39 +364,72 @@ final class Html implements Stringable
         return str_replace('%response-list.html%', $responses, $this->responseHtml);
     }
 
-    public function descriptionList(string $description): string
+    private function optional(bool $isRequired): string
+    {
+        if (! $isRequired) {
+            return $this->badge('optional', 'badge-key');
+        }
+
+        return '';
+    }
+
+    private function type(string $content): string
+    {
+        return $this->tag('code', 'type d-inline-block me-1', $content);
+    }
+
+    private function badge(string $name, string $class = ''): string
+    {
+        return str_replace(
+            [
+                '%name%',
+                '%class%',
+            ],
+            [
+                $name,
+                $class !== ''
+                    ? " {$class}"
+                    : '',
+            ],
+            $this->badgeHtml
+        );
+    }
+
+    private function div(string $content, string $class = ''): string
+    {
+        return $this->tag('div', $class, $content);
+    }
+
+    private function code(string $content, string $class = ''): string
+    {
+        return $this->tag('code', $class, $content);
+    }
+
+    private function getTemplate(string $name): string
+    {
+        return file_get_contents(self::TEMPLATES_DIR . $name)
+            ?: throw new LogicException();
+    }
+
+    private function description(string $title, string $description): string
     {
         if ($description === '') {
             return '';
         }
 
-        return str_replace('%list%', $description, $this->descriptionList);
-    }
-
-    /**
-     * @param array<string, array<string, array<string, string>>> $endpoints
-     */
-    public function endpoints(string $pathId, array $endpoints): string
-    {
-        $return = '';
-        foreach ($endpoints as $method => $endpoint) {
-            $request = $this->request($endpoint['request']);
-            $responses = $this->responses($endpoint['responses'] ?? []);
-            $return .= str_replace(
-                [
-                    '%request.html%', '%responses.html%'],
-                [$request, $responses],
-                $this->endpointHtml
-            );
-            $replace = [
-                '%method%' => $method,
-                '%md5%' => md5($pathId . $method),
-                '%description%' => $endpoint['description'],
-            ];
-            $return = strtr($return, $replace);
-        }
-
-        return str_replace('%endpoints%', $return, $this->endpointsHtml);
+        return str_replace(
+            [
+                '%title%',
+                '%dt%',
+                '%dd%',
+            ],
+            [
+                strip_tags($title),
+                $title,
+                $description,
+            ],
+            $this->descriptionHtml
+        );
     }
 
     private function onConstruct(): void

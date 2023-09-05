@@ -26,9 +26,12 @@ use function Chevere\Parameter\arrayp;
 use function Chevere\Parameter\arrayString;
 use function Chevere\Parameter\date;
 use function Chevere\Parameter\float;
+use function Chevere\Parameter\generic;
 use function Chevere\Parameter\integer;
+use function Chevere\Parameter\null;
 use function Chevere\Parameter\string;
 use function Chevere\Parameter\time;
+use function Chevere\Parameter\union;
 
 #[Request(
     new Header('Content-Type', 'application/json'),
@@ -58,6 +61,10 @@ class GetController extends Controller
             ),
             rate: float(minimum: 16.5),
             hours: integer(minimum: 1, maximum: 8),
+            union: union(null(), string()),
+            generic: generic(
+                string(),
+            )
         );
     }
 
