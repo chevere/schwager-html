@@ -244,7 +244,7 @@ final class Html implements Stringable
     {
         $return = '';
         foreach ($endpoints as $method => $endpoint) {
-            $request = $this->request($endpoint['request']);
+            $request = $this->request($endpoint['request'] ?? []);
             $responses = $this->responses($endpoint['responses'] ?? []);
             $return .= str_replace(
                 [
