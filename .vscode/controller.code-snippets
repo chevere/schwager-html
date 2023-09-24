@@ -1,0 +1,39 @@
+{
+    "http-controller": {
+        "description": "HTTP Controller",
+        "prefix": "controller",
+        "body": [
+            "<?php",
+            "",
+            "namespace Chevere\\Demo\\Controllers;",
+            "",
+            "use Chevere\\Attributes\\Description;",
+            "use Chevere\\Http\\Attributes\\Response;"
+            "use Chevere\\Http\\Controller;",
+            "use Chevere\\Http\\Header;",
+            "use Chevere\\Http\\Status;",
+            "use Chevere\\Parameter\\Interfaces\\ParameterInterface;",
+            "use function Chevere\\Parameter\\arrayp;",
+            "",
+            "#[Description('${1}')]",
+            "#[Response(",
+            "\tnew Status(${2}),",
+            "\tnew Header('Content-Type', 'application/json')",
+            ")]",
+            "final class $TM_FILENAME_BASE extends Controller",
+            "{",
+            "\tpublic static function acceptResponse(): ParameterInterface",
+            "\t{",
+            "\t\treturn arrayp(${3});",
+            "\t}",
+            "",
+            "\tpublic function run(",
+            "\t\t#[Description('${4}')]",
+            "\t\tstring \\$${5:id}",
+            "\t): array {",
+            "\t\treturn [];",
+            "\t}",
+            "}"
+        ]
+    },
+}
