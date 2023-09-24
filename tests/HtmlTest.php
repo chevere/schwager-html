@@ -13,47 +13,20 @@ declare(strict_types=1);
 
 namespace Chevere\Tests;
 
-use Chevere\Http\Methods\GetMethod;
-use Chevere\Http\Methods\PostMethod;
-use Chevere\Router\Endpoint;
 use Chevere\Schwager\DocumentSchema;
 use Chevere\Schwager\ServerSchema;
 use Chevere\Schwager\Spec;
-use Chevere\SchwagerUI\Html;
-use Chevere\Tests\src\GetController;
+use Chevere\SchwagerHTML\Html;
 use PHPUnit\Framework\TestCase;
 use function Chevere\Filesystem\fileForPath;
-use function Chevere\Router\bind;
-use function Chevere\Router\route;
 use function Chevere\Router\router;
-use function Chevere\Router\routes;
 
 final class HtmlTest extends TestCase
 {
     public function testConstruct(): void
     {
-        $get = new GetMethod();
-        $route = route('/user/{id}/{name}')
-            ->withEndpoint(
-                new Endpoint(
-                    $get,
-                    bind(GetController::class)
-                )
-            )
-            ->withEndpoint(
-                new Endpoint(
-                    new PostMethod(),
-                    bind(GetController::class)
-                )
-            );
-        $routeAlt = route('/customer/{id}/{name}')
-            ->withEndpoint(
-                new Endpoint(
-                    $get,
-                    bind(GetController::class)
-                )
-            );
-        $router = router(routes($route, $routeAlt));
+        $routes = require __DIR__ . '/../demo/routes.php';
+        $router = router($routes);
         $document = new DocumentSchema();
         $testServer = new ServerSchema('testServerUrl', 'test');
         $productionServer = new ServerSchema('productionServerUrl', 'test');

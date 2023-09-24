@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Chevere\SchwagerUI;
+namespace Chevere\SchwagerHTML;
 
 use Chevere\Schwager\Spec;
 use Chevere\Throwable\Exceptions\InvalidArgumentException;

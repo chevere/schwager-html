@@ -7,6 +7,7 @@
 /phpunit-coverage.xml export-ignore
 /phpunit.xml export-ignore
 /rector.php export-ignore
+/demo export-ignore
 /sonar-project.properties export-ignore
 
 *.php diff=php
