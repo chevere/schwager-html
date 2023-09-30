@@ -1,23 +1,23 @@
-# Schwager UI
+# Schwager HTML
 
 > 🔔 Subscribe to the [newsletter](https://chv.to/chevere-newsletter) to don't miss any update regarding Chevere.
 
 ![Chevere](chevere.svg)
 
-[![Build](https://img.shields.io/github/actions/workflow/status/chevere/schwager-ui/test.yml?branch=0.1&style=flat-square)](https://github.com/chevere/schwager-ui/actions)
-![Code size](https://img.shields.io/github/languages/code-size/chevere/schwager-ui?style=flat-square)
-[![Apache-2.0](https://img.shields.io/github/license/chevere/schwager-ui?style=flat-square)](LICENSE)
+[![Build](https://img.shields.io/github/actions/workflow/status/chevere/schwager-html/test.yml?branch=0.1&style=flat-square)](https://github.com/chevere/schwager-html/actions)
+![Code size](https://img.shields.io/github/languages/code-size/chevere/schwager-html?style=flat-square)
+[![Apache-2.0](https://img.shields.io/github/license/chevere/schwager-html?style=flat-square)](LICENSE)
 [![PHPStan](https://img.shields.io/badge/PHPStan-level%209-blueviolet?style=flat-square)](https://phpstan.org/)
-[![Mutation testing badge](https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fchevere%2Fschwager-ui%2F0.1)](https://dashboard.stryker-mutator.io/reports/github.com/chevere/schwager-ui/0.1)
+[![Mutation testing badge](https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fchevere%2Fschwager-html%2F0.1)](https://dashboard.stryker-mutator.io/reports/github.com/chevere/schwager-html/0.1)
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=chevere_schwager-ui&metric=alert_status)](https://sonarcloud.io/dashboard?id=chevere_schwager-ui)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=chevere_schwager-ui&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=chevere_schwager-ui)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=chevere_schwager-ui&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=chevere_schwager-ui)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=chevere_schwager-ui&metric=security_rating)](https://sonarcloud.io/dashboard?id=chevere_schwager-ui)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=chevere_schwager-ui&metric=coverage)](https://sonarcloud.io/dashboard?id=chevere_schwager-ui)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=chevere_schwager-ui&metric=sqale_index)](https://sonarcloud.io/dashboard?id=chevere_schwager-ui)
-[![CodeFactor](https://www.codefactor.io/repository/github/chevere/schwager-ui/badge)](https://www.codefactor.io/repository/github/chevere/schwager-ui)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/7a4696eb74904dd4bacbd139e2add47e)](https://www.codacy.com/gh/chevere/schwager-ui/dashboard)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=chevere_schwager-html&metric=alert_status)](https://sonarcloud.io/dashboard?id=chevere_schwager-html)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=chevere_schwager-html&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=chevere_schwager-html)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=chevere_schwager-html&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=chevere_schwager-html)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=chevere_schwager-html&metric=security_rating)](https://sonarcloud.io/dashboard?id=chevere_schwager-html)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=chevere_schwager-html&metric=coverage)](https://sonarcloud.io/dashboard?id=chevere_schwager-html)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=chevere_schwager-html&metric=sqale_index)](https://sonarcloud.io/dashboard?id=chevere_schwager-html)
+[![CodeFactor](https://www.codefactor.io/repository/github/chevere/schwager-html/badge)](https://www.codefactor.io/repository/github/chevere/schwager-html)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/7a4696eb74904dd4bacbd139e2add47e)](https://app.codacy.com/gh/chevere/schwager-html/dashboard)
 
 ## Documentation
 
