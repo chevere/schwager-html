@@ -26,6 +26,7 @@ use function Chevere\Parameter\generic;
 use function Chevere\Parameter\integer;
 use function Chevere\Parameter\null;
 use function Chevere\Parameter\string;
+use function Chevere\Parameter\union;
 
 #[Description('Add a new pet to the store')]
 #[Response(
@@ -43,11 +44,17 @@ final class PetsPostController extends Controller
                 name: string(),
             ),
             name: string(),
-            photoUrls: generic(string()),
-            tags: generic(
-                arrayp(
-                    id: integer(),
-                    name: string(),
+            photoUrls: union(
+                arrayp(),
+                generic(string())
+            ),
+            tags: union(
+                arrayp(),
+                generic(
+                    arrayp(
+                        id: integer(),
+                        name: string(),
+                    )
                 )
             ),
             status: enum('available', 'pending', 'sold'),

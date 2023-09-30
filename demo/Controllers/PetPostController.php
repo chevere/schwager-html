@@ -34,10 +34,12 @@ final class PetPostController extends Controller
 {
     public static function acceptBody(): ArrayParameterInterface
     {
-        return arrayp(
-            name: string(),
-            status: enum('available', 'pending', 'sold'),
-        );
+        return arrayp()
+            ->withOptional(
+                name: string(),
+                status: enum('available', 'pending', 'sold')
+            )
+            ->withOptionalMinimum(1);
     }
 
     public static function acceptResponse(): ParameterInterface

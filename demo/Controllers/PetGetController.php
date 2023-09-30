@@ -26,6 +26,7 @@ use function Chevere\Parameter\enum;
 use function Chevere\Parameter\generic;
 use function Chevere\Parameter\integer;
 use function Chevere\Parameter\string;
+use function Chevere\Parameter\union;
 
 #[Description('Finds pet by ID')]
 #[Response(
@@ -50,11 +51,17 @@ final class PetGetController extends Controller
                 name: string(),
             ),
             name: string(),
-            photoUrls: generic(string()),
-            tags: generic(
-                arrayp(
-                    id: integer(),
-                    name: string(),
+            photoUrls: union(
+                arrayp(),
+                generic(string())
+            ),
+            tags: union(
+                arrayp(),
+                generic(
+                    arrayp(
+                        id: integer(),
+                        name: string(),
+                    )
                 )
             ),
             status: enum('available', 'pending', 'sold'),

@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Chevere\SchwagerHTML;
 
 use Chevere\Schwager\Spec;
-use Chevere\Throwable\Exceptions\InvalidArgumentException;
 use Chevere\Throwable\Exceptions\LogicException;
 use Stringable;
 use function Chevere\Standard\arrayUnsetKey;
@@ -120,11 +119,11 @@ final class Html implements Stringable
                 '%regex%',
                 '%description%',
             ];
-            /** @var string */
+            /** @var string $type */
             $type = $variable['type'] ?? '';
-            /** @var string */
+            /** @var string $regex */
             $regex = $variable['regex'] ?? '';
-            /** @var string */
+            /** @var string $description */
             $description = $variable['description'] ?? '';
             $replace = [
                 str_replace('%name%', $name, $this->variableNameHtml),
@@ -154,9 +153,9 @@ final class Html implements Stringable
                     (string) ($value ?? '')
                 );
             }
-            /** @var string */
+            /** @var string $type */
             $type = $string['type'];
-            /** @var boolean */
+            /** @var boolean $required */
             $required = $string['required'];
             $return .= $this->description(
                 $name,
@@ -229,7 +228,6 @@ final class Html implements Stringable
 
     private function descriptionList(string $description): string
     {
-
         if ($description === '') {
             return ''; // @codeCoverageIgnore
         }
