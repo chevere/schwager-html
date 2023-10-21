@@ -47,3 +47,5 @@ jobs:
         env:
           INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
         run: infection --coverage=build/logs --min-covered-msi=90 --threads=$(nproc) --logger-github --only-covered
+      - name: Setup demo
+        run: php demo/demo.php

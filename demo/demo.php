@@ -40,7 +40,7 @@ $testServer = new ServerSchema(
 );
 $spec = new Spec($router, $document, $testServer);
 $html = new Html($spec);
-$file = fileForPath(__DIR__ . '/schwager.html');
+$file = fileForPath(__DIR__ . '/output/schwager.html');
 $file->createIfNotExists();
 $file->put($html->__toString());
 echo <<<PLAIN

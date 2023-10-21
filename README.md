@@ -19,9 +19,55 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/chevere/schwager-html/badge)](https://www.codefactor.io/repository/github/chevere/schwager-html)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/7a4696eb74904dd4bacbd139e2add47e)](https://app.codacy.com/gh/chevere/schwager-html/dashboard)
 
+## Demo
+
+![Schwager HTML light](demo/output/schwager-html-light.webp)
+![Schwager HTML dark](demo/output/schwager-html-dark.webp)
+
+There's an [online demo](https://chevere.github.io/schwager-html/demo/output/schwager.html) you can checkout. This is generated from the script at [demo/demo.php](demo/demo.php)
+
+## Quick start
+
+* Install using [Composer](https://packagist.org/packages/chevere/schwager-html)
+
+```php
+composer require chevere/schwager-html
+```
+
+* Generate HTML
+
+```php
+use Chevere\Schwager\DocumentSchema;
+use Chevere\Schwager\ServerSchema;
+use Chevere\Schwager\Spec;
+use Chevere\SchwagerHTML\Html;
+use function Chevere\Router\router;
+
+// Load your router
+$routes = require 'routes.php';
+$router = router($routes);
+// Create document
+$document = new DocumentSchema(
+    api: 'schwager',
+    name: '🐶 Schwager Petstore',
+    version: '1.0.0'
+);
+// Create server
+$testServer = new ServerSchema(
+    url: 'demoServerUrl',
+    description: 'This is a sample server Petstore API spec.'
+);
+// Create spec
+$spec = new Spec($router, $document, $testServer);
+// Create html
+$html = new Html($spec);
+// Read html as string
+$html->__toString();
+```
+
 ## Documentation
 
-Documentation is available at [chevere.org](https://chevere.org/).
+Documentation is available at [chevere.org](https://chevere.org/packages/schwager.html).
 
 ## License
 
