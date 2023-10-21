@@ -63,7 +63,35 @@ final class Html implements Stringable
         private Spec $spec,
         private array $array = []
     ) {
-        $this->onConstruct();
+        if ($this->array === []) {
+            $this->array = $this->spec->toArray();
+        }
+        $this->html = $this->getTemplate('main.html');
+        $search = [
+            '%name%',
+            '%version%',
+        ];
+        $replace = [
+            $this->spec->document()->name,
+            $this->spec->document()->version,
+        ];
+        $this->html = str_replace($search, $replace, $this->html);
+        $this->descriptionHtml = $this->getTemplate('description.html');
+        $this->pathHtml = $this->getTemplate('path.html');
+        $this->variableHtml = $this->getTemplate('variable.html');
+        $this->variableNameHtml = $this->getTemplate('variable-name.html');
+        $this->variablesHtml = $this->getTemplate('variables.html');
+        $this->requestHtml = $this->getTemplate('request.html');
+        $this->responseHtml = $this->getTemplate('response.html');
+        $this->responseListHtml = $this->getTemplate('response-list.html');
+        $this->responseDescriptionHtml = $this->getTemplate('response-description.html');
+        $this->endpointHtml = $this->getTemplate('endpoint.html');
+        $this->endpointsHtml = $this->getTemplate('endpoints.html');
+        $this->statusCodeHtml = $this->getTemplate('status-code.html');
+        $this->badgeHtml = $this->getTemplate('badge.html');
+        $this->serverHtml = $this->getTemplate('server.html');
+        $this->serversHtml = $this->getTemplate('servers.html');
+        $this->descriptionList = $this->getTemplate('description-list.html');
         $servers = '';
         foreach ($this->spec->servers() as $server) {
             $search = [
@@ -126,7 +154,7 @@ final class Html implements Stringable
             /** @var string $description */
             $description = $variable['description'] ?? '';
             $replace = [
-                str_replace('%name%', $name, $this->variableNameHtml),
+                str_replace('%name%', "{{$name}}", $this->variableNameHtml),
                 $this->description('Type', $this->type($type)),
                 $this->description('Regex', $this->code($regex)),
                 $this->description('Description', $description),
@@ -134,7 +162,9 @@ final class Html implements Stringable
             $return .= str_replace($search, $replace, $this->variableHtml);
         }
 
-        return str_replace('%variables%', $return, $this->variablesHtml);
+        return $return === ''
+            ? ''
+            : str_replace('%variables%', $return, $this->variablesHtml);
     }
 
     /**
@@ -293,8 +323,11 @@ final class Html implements Stringable
             )
             . $body;
         }
+        $replace = array_filter($replace);
 
-        return str_replace($search, $replace, $this->requestHtml);
+        return $replace === []
+            ? ''
+            : str_replace($search, $replace, $this->requestHtml);
     }
 
     /**
@@ -428,39 +461,6 @@ final class Html implements Stringable
             ],
             $this->descriptionHtml
         );
-    }
-
-    private function onConstruct(): void
-    {
-        if ($this->array === []) {
-            $this->array = $this->spec->toArray();
-        }
-        $this->html = $this->getTemplate('main.html');
-        $search = [
-            '%name%',
-            '%version%',
-        ];
-        $replace = [
-            $this->spec->document()->name,
-            $this->spec->document()->version,
-        ];
-        $this->html = str_replace($search, $replace, $this->html);
-        $this->descriptionHtml = $this->getTemplate('description.html');
-        $this->pathHtml = $this->getTemplate('path.html');
-        $this->variableHtml = $this->getTemplate('variable.html');
-        $this->variableNameHtml = $this->getTemplate('variable-name.html');
-        $this->variablesHtml = $this->getTemplate('variables.html');
-        $this->requestHtml = $this->getTemplate('request.html');
-        $this->responseHtml = $this->getTemplate('response.html');
-        $this->responseListHtml = $this->getTemplate('response-list.html');
-        $this->responseDescriptionHtml = $this->getTemplate('response-description.html');
-        $this->endpointHtml = $this->getTemplate('endpoint.html');
-        $this->endpointsHtml = $this->getTemplate('endpoints.html');
-        $this->statusCodeHtml = $this->getTemplate('status-code.html');
-        $this->badgeHtml = $this->getTemplate('badge.html');
-        $this->serverHtml = $this->getTemplate('server.html');
-        $this->serversHtml = $this->getTemplate('servers.html');
-        $this->descriptionList = $this->getTemplate('description-list.html');
     }
 
     private function tag(string $tag, string $class, string $content): string

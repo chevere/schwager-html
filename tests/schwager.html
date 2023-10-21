@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="../src/bootstrap/bootstrap.min.css" rel="stylesheet">
-<title>Chevere API</title>
+<title>🐶 Schwager Petstore</title>
 <style media="all">
 :root
 {
@@ -31,7 +31,6 @@
 code.type {
     color: #f47c13;
 }
-
 .http-method {
     border-style: solid;
     border-width: 1px;
@@ -69,16 +68,20 @@ code.type {
     border-color: var(--border-OPTIONS);
     color: var(--text-OPTIONS);
 }
-
 .badge-key {
     background-color: var(--bs-secondary-bg-subtle)!important;
     color: var(--bs-secondary-text-emphasis)!important;
     border-color: var(--bs-secondary-border-subtle)!important;
     font-weight: 600!important;
 }
-
 .sticky-method {
-    top: 3.8rem;
+    top: 4rem;
+    top: calc(2.05*(1.325rem + .9vw));
+}
+@media (min-width: 1200px) {
+    .sticky-method {
+        top: 4rem;
+    }
 }
 .row .fw-normal {
     text-overflow: ellipsis;
@@ -104,9 +107,9 @@ code.type {
 </style>
 </head>
 <body class="container-xxl">
-    <div class="d-flex align-items-baseline mb-4">
+    <div class="d-flex align-items-baseline mt-4 mb-4">
         <div>
-            <h1 class="mb-0">Chevere API</h1>
+            <h1 class="mb-0">🐶 Schwager Petstore</h1>
         </div>
         <div>
             <span class="ms-2 text-muted fs-4">1.0.0</span>
@@ -118,64 +121,33 @@ code.type {
         <li class="list-group-item">
     <dl class="row mb-0">
         <dt class="col-sm-2">Description</dt>
-        <dd class="col-sm-10">test</dd>
+        <dd class="col-sm-10">This is a sample server Petstore API spec.</dd>
         <dt class="col-sm-2">URL</dt>
-        <dd class="col-sm-10">testServerUrl</dd>
-    </dl>
-</li>
-<li class="list-group-item">
-    <dl class="row mb-0">
-        <dt class="col-sm-2">Description</dt>
-        <dd class="col-sm-10">test</dd>
-        <dt class="col-sm-2">URL</dt>
-        <dd class="col-sm-10">productionServerUrl</dd>
+        <dd class="col-sm-10">demoServerUrl</dd>
     </dl>
 </li>
 
     </ul>
 </div>
 
-    <h3 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/login</h3>
+    <h2 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/login</h2>
 <dl>
     <dt>Name</dt>
     <dd>/login</dd>
     <dt>Regex</dt>
     <dd class="font-monospace">/login</dd>
-    <dt>Variables</dt>
-<dd>
-    <ul class="list-group mb-2 mt-2">
-        
-    </ul>
-</dd>
-
+    
 </dl>
 <strong>Endpoints</strong>
-<ul class="list-group mb-2 mt-2">
+<ul class="list-group mb-4 mt-2">
     <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".GET-667ad3025b28b6728e22cd4db0e247ce" aria-expanded="false" aria-controls="GET-667ad3025b28b6728e22cd4db0e247ce">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Logs user into the system</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-GET fs-6">GET</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-GET fs-5 me-2">GET</span>Logs user into the system</h4>
         </div>
     </div>
-    <dl class="GET-667ad3025b28b6728e22cd4db0e247ce mt-2 collapse show">
-    <dt>Request</dt>
-    <dd>
-        <div class="list-group mb-2 mt-2">
-            <div class="list-group-item bg-body-tertiary py-3">
-                <dl class="row mb-0">
-                    
-                    
-                    
-                </dl>
-            </div>
-        </div>
-    </dd>
-</dl>
-
-    <dl class="GET-667ad3025b28b6728e22cd4db0e247ce mt-2 collapse show">
+    
+    <dl class="GET-667ad3025b28b6728e22cd4db0e247ce mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -214,47 +186,24 @@ code.type {
 
 </ul>
 
-<h3 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/logout</h3>
+<h2 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/logout</h2>
 <dl>
     <dt>Name</dt>
     <dd>/logout</dd>
     <dt>Regex</dt>
     <dd class="font-monospace">/logout</dd>
-    <dt>Variables</dt>
-<dd>
-    <ul class="list-group mb-2 mt-2">
-        
-    </ul>
-</dd>
-
+    
 </dl>
 <strong>Endpoints</strong>
-<ul class="list-group mb-2 mt-2">
+<ul class="list-group mb-4 mt-2">
     <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".GET-71c9f52556a337ac062c51190bc27bdc" aria-expanded="false" aria-controls="GET-71c9f52556a337ac062c51190bc27bdc">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Logs out current logged in user session</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-GET fs-6">GET</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-GET fs-5 me-2">GET</span>Logs out current logged in user session</h4>
         </div>
     </div>
-    <dl class="GET-71c9f52556a337ac062c51190bc27bdc mt-2 collapse show">
-    <dt>Request</dt>
-    <dd>
-        <div class="list-group mb-2 mt-2">
-            <div class="list-group-item bg-body-tertiary py-3">
-                <dl class="row mb-0">
-                    
-                    
-                    
-                </dl>
-            </div>
-        </div>
-    </dd>
-</dl>
-
-    <dl class="GET-71c9f52556a337ac062c51190bc27bdc mt-2 collapse show">
+    
+    <dl class="GET-71c9f52556a337ac062c51190bc27bdc mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -279,39 +228,28 @@ code.type {
 
 </ul>
 
-<h3 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/pet</h3>
+<h2 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/pet</h2>
 <dl>
     <dt>Name</dt>
     <dd>/pet</dd>
     <dt>Regex</dt>
     <dd class="font-monospace">/pet</dd>
-    <dt>Variables</dt>
-<dd>
-    <ul class="list-group mb-2 mt-2">
-        
-    </ul>
-</dd>
-
+    
 </dl>
 <strong>Endpoints</strong>
-<ul class="list-group mb-2 mt-2">
+<ul class="list-group mb-4 mt-2">
     <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".POST-e300afda4a6ea9a3f53bfbf959ee2f8b" aria-expanded="false" aria-controls="POST-e300afda4a6ea9a3f53bfbf959ee2f8b">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Add a new pet to the store</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-POST fs-6">POST</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-POST fs-5 me-2">POST</span>Add a new pet to the store</h4>
         </div>
     </div>
-    <dl class="POST-e300afda4a6ea9a3f53bfbf959ee2f8b mt-2 collapse show">
+    <dl class="POST-e300afda4a6ea9a3f53bfbf959ee2f8b mt-2 collapse">
     <dt>Request</dt>
     <dd>
         <div class="list-group mb-2 mt-2">
             <div class="list-group-item bg-body-tertiary py-3">
                 <dl class="row mb-0">
-                    
-                    
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="id">id</dt>
@@ -381,13 +319,15 @@ code.type {
 <dd class="col-sm-10"><code class="type d-inline-block me-1">string</code></dd>
 </dl>
 
+                    
+                    
                 </dl>
             </div>
         </div>
     </dd>
 </dl>
 
-    <dl class="POST-e300afda4a6ea9a3f53bfbf959ee2f8b mt-2 collapse show">
+    <dl class="POST-e300afda4a6ea9a3f53bfbf959ee2f8b mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -414,20 +354,15 @@ code.type {
 <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".PUT-296164c6aeb67403b76948947be32a28" aria-expanded="false" aria-controls="PUT-296164c6aeb67403b76948947be32a28">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Update an existing pet</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-PUT fs-6">PUT</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-PUT fs-5 me-2">PUT</span>Update an existing pet</h4>
         </div>
     </div>
-    <dl class="PUT-296164c6aeb67403b76948947be32a28 mt-2 collapse show">
+    <dl class="PUT-296164c6aeb67403b76948947be32a28 mt-2 collapse">
     <dt>Request</dt>
     <dd>
         <div class="list-group mb-2 mt-2">
             <div class="list-group-item bg-body-tertiary py-3">
                 <dl class="row mb-0">
-                    
-                    
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="id">id</dt>
@@ -497,13 +432,15 @@ code.type {
 <dd class="col-sm-10"><code class="type d-inline-block me-1">string</code></dd>
 </dl>
 
+                    
+                    
                 </dl>
             </div>
         </div>
     </dd>
 </dl>
 
-    <dl class="PUT-296164c6aeb67403b76948947be32a28 mt-2 collapse show">
+    <dl class="PUT-296164c6aeb67403b76948947be32a28 mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -554,38 +491,28 @@ code.type {
 
 </ul>
 
-<h3 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/pet/findByStatus</h3>
+<h2 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/pet/findByStatus</h2>
 <dl>
     <dt>Name</dt>
     <dd>/pet/findByStatus</dd>
     <dt>Regex</dt>
     <dd class="font-monospace">/pet/findByStatus</dd>
-    <dt>Variables</dt>
-<dd>
-    <ul class="list-group mb-2 mt-2">
-        
-    </ul>
-</dd>
-
+    
 </dl>
 <strong>Endpoints</strong>
-<ul class="list-group mb-2 mt-2">
+<ul class="list-group mb-4 mt-2">
     <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".GET-35e86c7cde8742ecae1e1f7e4ea680f2" aria-expanded="false" aria-controls="GET-35e86c7cde8742ecae1e1f7e4ea680f2">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Finds Pets by status</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-GET fs-6">GET</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-GET fs-5 me-2">GET</span>Finds Pets by status</h4>
         </div>
     </div>
-    <dl class="GET-35e86c7cde8742ecae1e1f7e4ea680f2 mt-2 collapse show">
+    <dl class="GET-35e86c7cde8742ecae1e1f7e4ea680f2 mt-2 collapse">
     <dt>Request</dt>
     <dd>
         <div class="list-group mb-2 mt-2">
             <div class="list-group-item bg-body-tertiary py-3">
                 <dl class="row mb-0">
-                    
                     <dt class="col-sm-2" title="Query">Query</dt>
 <dd class="col-sm-10"><code class="type d-inline-block me-1">array&lt;string&gt;</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="status">status</dt>
@@ -596,13 +523,14 @@ code.type {
 </dl>
 
                     
+                    
                 </dl>
             </div>
         </div>
     </dd>
 </dl>
 
-    <dl class="GET-35e86c7cde8742ecae1e1f7e4ea680f2 mt-2 collapse show">
+    <dl class="GET-35e86c7cde8742ecae1e1f7e4ea680f2 mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -719,38 +647,28 @@ code.type {
 
 </ul>
 
-<h3 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/pet/findByTags</h3>
+<h2 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/pet/findByTags</h2>
 <dl>
     <dt>Name</dt>
     <dd>/pet/findByTags</dd>
     <dt>Regex</dt>
     <dd class="font-monospace">/pet/findByTags</dd>
-    <dt>Variables</dt>
-<dd>
-    <ul class="list-group mb-2 mt-2">
-        
-    </ul>
-</dd>
-
+    
 </dl>
 <strong>Endpoints</strong>
-<ul class="list-group mb-2 mt-2">
+<ul class="list-group mb-4 mt-2">
     <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".GET-f0854937462a90ab65e7f27843f1f74b" aria-expanded="false" aria-controls="GET-f0854937462a90ab65e7f27843f1f74b">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Finds Pets by tag</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-GET fs-6">GET</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-GET fs-5 me-2">GET</span>Finds Pets by tag</h4>
         </div>
     </div>
-    <dl class="GET-f0854937462a90ab65e7f27843f1f74b mt-2 collapse show">
+    <dl class="GET-f0854937462a90ab65e7f27843f1f74b mt-2 collapse">
     <dt>Request</dt>
     <dd>
         <div class="list-group mb-2 mt-2">
             <div class="list-group-item bg-body-tertiary py-3">
                 <dl class="row mb-0">
-                    
                     <dt class="col-sm-2" title="Query">Query</dt>
 <dd class="col-sm-10"><code class="type d-inline-block me-1">array&lt;string&gt;</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="tags">tags</dt>
@@ -763,13 +681,14 @@ code.type {
 </dl>
 
                     
+                    
                 </dl>
             </div>
         </div>
     </dd>
 </dl>
 
-    <dl class="GET-f0854937462a90ab65e7f27843f1f74b mt-2 collapse show">
+    <dl class="GET-f0854937462a90ab65e7f27843f1f74b mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -886,7 +805,7 @@ code.type {
 
 </ul>
 
-<h3 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/pet/{petId}</h3>
+<h2 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/pet/{petId}</h2>
 <dl>
     <dt>Name</dt>
     <dd>/pet/{petId}</dd>
@@ -895,8 +814,8 @@ code.type {
     <dt>Variables</dt>
 <dd>
     <ul class="list-group mb-2 mt-2">
-        <li class="list-group-item bg-body-tertiary">
-    <span class="badge fw-normal fs-6 mb-1 px-2 py-1 fw-semibold text-warning-emphasis bg-warning-subtle border border-warning-subtle">petId</span>
+        <li class="list-group-item bg-body-tertiary py-3">
+    <span class="badge fw-normal fs-6 mb-2 px-2 py-2 fw-semibold text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle">{petId}</span>
 
     <dl class="row mb-0">
         <dt class="col-sm-2" title="Type">Type</dt>
@@ -916,37 +835,34 @@ code.type {
 
 </dl>
 <strong>Endpoints</strong>
-<ul class="list-group mb-2 mt-2">
+<ul class="list-group mb-4 mt-2">
     <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".DELETE-63bdaf02a1ece5507aa5dad90db5141b" aria-expanded="false" aria-controls="DELETE-63bdaf02a1ece5507aa5dad90db5141b">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Deletes a pet</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-DELETE fs-6">DELETE</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-DELETE fs-5 me-2">DELETE</span>Deletes a pet</h4>
         </div>
     </div>
-    <dl class="DELETE-63bdaf02a1ece5507aa5dad90db5141b mt-2 collapse show">
+    <dl class="DELETE-63bdaf02a1ece5507aa5dad90db5141b mt-2 collapse">
     <dt>Request</dt>
     <dd>
         <div class="list-group mb-2 mt-2">
             <div class="list-group-item bg-body-tertiary py-3">
                 <dl class="row mb-0">
-                    
-                    
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="api_key">api_key</dt>
 <dd class="col-sm-10"><code class="type d-inline-block me-1">string</code></dd>
 </dl>
 
+                    
+                    
                 </dl>
             </div>
         </div>
     </dd>
 </dl>
 
-    <dl class="DELETE-63bdaf02a1ece5507aa5dad90db5141b mt-2 collapse show">
+    <dl class="DELETE-63bdaf02a1ece5507aa5dad90db5141b mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -985,19 +901,15 @@ code.type {
 <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".GET-bc95f1c242529d9c8c50d52d5263bf93" aria-expanded="false" aria-controls="GET-bc95f1c242529d9c8c50d52d5263bf93">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Finds pet by ID</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-GET fs-6">GET</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-GET fs-5 me-2">GET</span>Finds pet by ID</h4>
         </div>
     </div>
-    <dl class="GET-bc95f1c242529d9c8c50d52d5263bf93 mt-2 collapse show">
+    <dl class="GET-bc95f1c242529d9c8c50d52d5263bf93 mt-2 collapse">
     <dt>Request</dt>
     <dd>
         <div class="list-group mb-2 mt-2">
             <div class="list-group-item bg-body-tertiary py-3">
                 <dl class="row mb-0">
-                    
                     <dt class="col-sm-2" title="Query">Query</dt>
 <dd class="col-sm-10"><code class="type d-inline-block me-1">array&lt;string&gt;</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="status">status</dt>
@@ -1008,13 +920,14 @@ code.type {
 </dl>
 
                     
+                    
                 </dl>
             </div>
         </div>
     </dd>
 </dl>
 
-    <dl class="GET-bc95f1c242529d9c8c50d52d5263bf93 mt-2 collapse show">
+    <dl class="GET-bc95f1c242529d9c8c50d52d5263bf93 mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -1133,20 +1046,15 @@ code.type {
 <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".POST-3ca37c31095c5efe4ea018972495b0e0" aria-expanded="false" aria-controls="POST-3ca37c31095c5efe4ea018972495b0e0">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Updates a pet in the store with form data</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-POST fs-6">POST</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-POST fs-5 me-2">POST</span>Updates a pet in the store with form data</h4>
         </div>
     </div>
-    <dl class="POST-3ca37c31095c5efe4ea018972495b0e0 mt-2 collapse show">
+    <dl class="POST-3ca37c31095c5efe4ea018972495b0e0 mt-2 collapse">
     <dt>Request</dt>
     <dd>
         <div class="list-group mb-2 mt-2">
             <div class="list-group-item bg-body-tertiary py-3">
                 <dl class="row mb-0">
-                    
-                    
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="name">name</dt>
@@ -1158,13 +1066,15 @@ code.type {
 </dd>
 </dl>
 
+                    
+                    
                 </dl>
             </div>
         </div>
     </dd>
 </dl>
 
-    <dl class="POST-3ca37c31095c5efe4ea018972495b0e0 mt-2 collapse show">
+    <dl class="POST-3ca37c31095c5efe4ea018972495b0e0 mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -1191,7 +1101,7 @@ code.type {
 
 </ul>
 
-<h3 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/pet/{petId}/uploadImage</h3>
+<h2 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/pet/{petId}/uploadImage</h2>
 <dl>
     <dt>Name</dt>
     <dd>/pet/{petId}/uploadImage</dd>
@@ -1200,8 +1110,8 @@ code.type {
     <dt>Variables</dt>
 <dd>
     <ul class="list-group mb-2 mt-2">
-        <li class="list-group-item bg-body-tertiary">
-    <span class="badge fw-normal fs-6 mb-1 px-2 py-1 fw-semibold text-warning-emphasis bg-warning-subtle border border-warning-subtle">petId</span>
+        <li class="list-group-item bg-body-tertiary py-3">
+    <span class="badge fw-normal fs-6 mb-2 px-2 py-2 fw-semibold text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle">{petId}</span>
 
     <dl class="row mb-0">
         <dt class="col-sm-2" title="Type">Type</dt>
@@ -1221,24 +1131,19 @@ code.type {
 
 </dl>
 <strong>Endpoints</strong>
-<ul class="list-group mb-2 mt-2">
+<ul class="list-group mb-4 mt-2">
     <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".POST-930c62d07371cddd3e16f1630d415233" aria-expanded="false" aria-controls="POST-930c62d07371cddd3e16f1630d415233">
         <div class="me-auto">
-            <h4 class="h5 mb-0">uploads an image</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-POST fs-6">POST</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-POST fs-5 me-2">POST</span>uploads an image</h4>
         </div>
     </div>
-    <dl class="POST-930c62d07371cddd3e16f1630d415233 mt-2 collapse show">
+    <dl class="POST-930c62d07371cddd3e16f1630d415233 mt-2 collapse">
     <dt>Request</dt>
     <dd>
         <div class="list-group mb-2 mt-2">
             <div class="list-group-item bg-body-tertiary py-3">
                 <dl class="row mb-0">
-                    
-                    
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="additionalMetadata">additionalMetadata</dt>
@@ -1248,13 +1153,15 @@ code.type {
 <dd class="col-sm-10"><code class="type d-inline-block me-1">string</code></dd>
 </dl>
 
+                    
+                    
                 </dl>
             </div>
         </div>
     </dd>
 </dl>
 
-    <dl class="POST-930c62d07371cddd3e16f1630d415233 mt-2 collapse show">
+    <dl class="POST-930c62d07371cddd3e16f1630d415233 mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -1292,47 +1199,24 @@ code.type {
 
 </ul>
 
-<h3 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/store/inventory</h3>
+<h2 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/store/inventory</h2>
 <dl>
     <dt>Name</dt>
     <dd>/store/inventory</dd>
     <dt>Regex</dt>
     <dd class="font-monospace">/store/inventory</dd>
-    <dt>Variables</dt>
-<dd>
-    <ul class="list-group mb-2 mt-2">
-        
-    </ul>
-</dd>
-
+    
 </dl>
 <strong>Endpoints</strong>
-<ul class="list-group mb-2 mt-2">
+<ul class="list-group mb-4 mt-2">
     <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".GET-302472c97bf4679b7c0381f7d9c10fba" aria-expanded="false" aria-controls="GET-302472c97bf4679b7c0381f7d9c10fba">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Returns pet inventories by status</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-GET fs-6">GET</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-GET fs-5 me-2">GET</span>Returns pet inventories by status</h4>
         </div>
     </div>
-    <dl class="GET-302472c97bf4679b7c0381f7d9c10fba mt-2 collapse show">
-    <dt>Request</dt>
-    <dd>
-        <div class="list-group mb-2 mt-2">
-            <div class="list-group-item bg-body-tertiary py-3">
-                <dl class="row mb-0">
-                    
-                    
-                    
-                </dl>
-            </div>
-        </div>
-    </dd>
-</dl>
-
-    <dl class="GET-302472c97bf4679b7c0381f7d9c10fba mt-2 collapse show">
+    
+    <dl class="GET-302472c97bf4679b7c0381f7d9c10fba mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -1371,39 +1255,28 @@ code.type {
 
 </ul>
 
-<h3 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/store/order</h3>
+<h2 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/store/order</h2>
 <dl>
     <dt>Name</dt>
     <dd>/store/order</dd>
     <dt>Regex</dt>
     <dd class="font-monospace">/store/order</dd>
-    <dt>Variables</dt>
-<dd>
-    <ul class="list-group mb-2 mt-2">
-        
-    </ul>
-</dd>
-
+    
 </dl>
 <strong>Endpoints</strong>
-<ul class="list-group mb-2 mt-2">
+<ul class="list-group mb-4 mt-2">
     <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".POST-0928aea24dce35a74515f105d26d364e" aria-expanded="false" aria-controls="POST-0928aea24dce35a74515f105d26d364e">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Place an order for a pet</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-POST fs-6">POST</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-POST fs-5 me-2">POST</span>Place an order for a pet</h4>
         </div>
     </div>
-    <dl class="POST-0928aea24dce35a74515f105d26d364e mt-2 collapse show">
+    <dl class="POST-0928aea24dce35a74515f105d26d364e mt-2 collapse">
     <dt>Request</dt>
     <dd>
         <div class="list-group mb-2 mt-2">
             <div class="list-group-item bg-body-tertiary py-3">
                 <dl class="row mb-0">
-                    
-                    
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="id">id</dt>
@@ -1425,13 +1298,15 @@ code.type {
 <dd class="col-sm-10"><code class="type d-inline-block me-1">boolean</code></dd>
 </dl>
 
+                    
+                    
                 </dl>
             </div>
         </div>
     </dd>
 </dl>
 
-    <dl class="POST-0928aea24dce35a74515f105d26d364e mt-2 collapse show">
+    <dl class="POST-0928aea24dce35a74515f105d26d364e mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -1490,7 +1365,7 @@ code.type {
 
 </ul>
 
-<h3 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/store/order/{orderId}</h3>
+<h2 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/store/order/{orderId}</h2>
 <dl>
     <dt>Name</dt>
     <dd>/store/order/{orderId}</dd>
@@ -1499,8 +1374,8 @@ code.type {
     <dt>Variables</dt>
 <dd>
     <ul class="list-group mb-2 mt-2">
-        <li class="list-group-item bg-body-tertiary">
-    <span class="badge fw-normal fs-6 mb-1 px-2 py-1 fw-semibold text-warning-emphasis bg-warning-subtle border border-warning-subtle">orderId</span>
+        <li class="list-group-item bg-body-tertiary py-3">
+    <span class="badge fw-normal fs-6 mb-2 px-2 py-2 fw-semibold text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle">{orderId}</span>
 
     <dl class="row mb-0">
         <dt class="col-sm-2" title="Type">Type</dt>
@@ -1520,32 +1395,15 @@ code.type {
 
 </dl>
 <strong>Endpoints</strong>
-<ul class="list-group mb-2 mt-2">
+<ul class="list-group mb-4 mt-2">
     <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".DELETE-07193ea49515f369a8ea07e74b20dedd" aria-expanded="false" aria-controls="DELETE-07193ea49515f369a8ea07e74b20dedd">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Delete purchase order by ID</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-DELETE fs-6">DELETE</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-DELETE fs-5 me-2">DELETE</span>Delete purchase order by ID</h4>
         </div>
     </div>
-    <dl class="DELETE-07193ea49515f369a8ea07e74b20dedd mt-2 collapse show">
-    <dt>Request</dt>
-    <dd>
-        <div class="list-group mb-2 mt-2">
-            <div class="list-group-item bg-body-tertiary py-3">
-                <dl class="row mb-0">
-                    
-                    
-                    
-                </dl>
-            </div>
-        </div>
-    </dd>
-</dl>
-
-    <dl class="DELETE-07193ea49515f369a8ea07e74b20dedd mt-2 collapse show">
+    
+    <dl class="DELETE-07193ea49515f369a8ea07e74b20dedd mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -1584,28 +1442,11 @@ code.type {
 <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".GET-98c435b729dd1cdce9a65aef564d6494" aria-expanded="false" aria-controls="GET-98c435b729dd1cdce9a65aef564d6494">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Find purchase order by ID</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-GET fs-6">GET</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-GET fs-5 me-2">GET</span>Find purchase order by ID</h4>
         </div>
     </div>
-    <dl class="GET-98c435b729dd1cdce9a65aef564d6494 mt-2 collapse show">
-    <dt>Request</dt>
-    <dd>
-        <div class="list-group mb-2 mt-2">
-            <div class="list-group-item bg-body-tertiary py-3">
-                <dl class="row mb-0">
-                    
-                    
-                    
-                </dl>
-            </div>
-        </div>
-    </dd>
-</dl>
-
-    <dl class="GET-98c435b729dd1cdce9a65aef564d6494 mt-2 collapse show">
+    
+    <dl class="GET-98c435b729dd1cdce9a65aef564d6494 mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -1676,39 +1517,28 @@ code.type {
 
 </ul>
 
-<h3 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/user</h3>
+<h2 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/user</h2>
 <dl>
     <dt>Name</dt>
     <dd>/user</dd>
     <dt>Regex</dt>
     <dd class="font-monospace">/user</dd>
-    <dt>Variables</dt>
-<dd>
-    <ul class="list-group mb-2 mt-2">
-        
-    </ul>
-</dd>
-
+    
 </dl>
 <strong>Endpoints</strong>
-<ul class="list-group mb-2 mt-2">
+<ul class="list-group mb-4 mt-2">
     <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".POST-e04c74207b74d6b2db2bc5e9f65ed6ca" aria-expanded="false" aria-controls="POST-e04c74207b74d6b2db2bc5e9f65ed6ca">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Create user</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-POST fs-6">POST</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-POST fs-5 me-2">POST</span>Create user</h4>
         </div>
     </div>
-    <dl class="POST-e04c74207b74d6b2db2bc5e9f65ed6ca mt-2 collapse show">
+    <dl class="POST-e04c74207b74d6b2db2bc5e9f65ed6ca mt-2 collapse">
     <dt>Request</dt>
     <dd>
         <div class="list-group mb-2 mt-2">
             <div class="list-group-item bg-body-tertiary py-3">
                 <dl class="row mb-0">
-                    
-                    
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="id">id</dt>
@@ -1736,13 +1566,15 @@ code.type {
 <dd class="col-sm-10"><code class="type d-inline-block me-1">integer</code></dd>
 </dl>
 
+                    
+                    
                 </dl>
             </div>
         </div>
     </dd>
 </dl>
 
-    <dl class="POST-e04c74207b74d6b2db2bc5e9f65ed6ca mt-2 collapse show">
+    <dl class="POST-e04c74207b74d6b2db2bc5e9f65ed6ca mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -1767,39 +1599,28 @@ code.type {
 
 </ul>
 
-<h3 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/user/createWithArray</h3>
+<h2 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/user/createWithArray</h2>
 <dl>
     <dt>Name</dt>
     <dd>/user/createWithArray</dd>
     <dt>Regex</dt>
     <dd class="font-monospace">/user/createWithArray</dd>
-    <dt>Variables</dt>
-<dd>
-    <ul class="list-group mb-2 mt-2">
-        
-    </ul>
-</dd>
-
+    
 </dl>
 <strong>Endpoints</strong>
-<ul class="list-group mb-2 mt-2">
+<ul class="list-group mb-4 mt-2">
     <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".POST-34f1f9594cead35ed7a7f8a430ced1d7" aria-expanded="false" aria-controls="POST-34f1f9594cead35ed7a7f8a430ced1d7">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Creates lists of users with given input array</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-POST fs-6">POST</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-POST fs-5 me-2">POST</span>Creates lists of users with given input array</h4>
         </div>
     </div>
-    <dl class="POST-34f1f9594cead35ed7a7f8a430ced1d7 mt-2 collapse show">
+    <dl class="POST-34f1f9594cead35ed7a7f8a430ced1d7 mt-2 collapse">
     <dt>Request</dt>
     <dd>
         <div class="list-group mb-2 mt-2">
             <div class="list-group-item bg-body-tertiary py-3">
                 <dl class="row mb-0">
-                    
-                    
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="input">input</dt>
@@ -1840,13 +1661,15 @@ code.type {
 </dl>
 </dl>
 
+                    
+                    
                 </dl>
             </div>
         </div>
     </dd>
 </dl>
 
-    <dl class="POST-34f1f9594cead35ed7a7f8a430ced1d7 mt-2 collapse show">
+    <dl class="POST-34f1f9594cead35ed7a7f8a430ced1d7 mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -1873,39 +1696,28 @@ code.type {
 
 </ul>
 
-<h3 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/user/createWithList</h3>
+<h2 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/user/createWithList</h2>
 <dl>
     <dt>Name</dt>
     <dd>/user/createWithList</dd>
     <dt>Regex</dt>
     <dd class="font-monospace">/user/createWithList</dd>
-    <dt>Variables</dt>
-<dd>
-    <ul class="list-group mb-2 mt-2">
-        
-    </ul>
-</dd>
-
+    
 </dl>
 <strong>Endpoints</strong>
-<ul class="list-group mb-2 mt-2">
+<ul class="list-group mb-4 mt-2">
     <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".POST-4123864e4c9ee676c295b49dadc74d4a" aria-expanded="false" aria-controls="POST-4123864e4c9ee676c295b49dadc74d4a">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Creates lists of users with given input array</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-POST fs-6">POST</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-POST fs-5 me-2">POST</span>Creates lists of users with given input array</h4>
         </div>
     </div>
-    <dl class="POST-4123864e4c9ee676c295b49dadc74d4a mt-2 collapse show">
+    <dl class="POST-4123864e4c9ee676c295b49dadc74d4a mt-2 collapse">
     <dt>Request</dt>
     <dd>
         <div class="list-group mb-2 mt-2">
             <div class="list-group-item bg-body-tertiary py-3">
                 <dl class="row mb-0">
-                    
-                    
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><code class="type d-inline-block me-1">array#map</code></dd>
 <dl class="row m-0 p-0"><dt class="col-sm-2" title="input">input</dt>
@@ -1946,13 +1758,15 @@ code.type {
 </dl>
 </dl>
 
+                    
+                    
                 </dl>
             </div>
         </div>
     </dd>
 </dl>
 
-    <dl class="POST-4123864e4c9ee676c295b49dadc74d4a mt-2 collapse show">
+    <dl class="POST-4123864e4c9ee676c295b49dadc74d4a mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -1979,7 +1793,7 @@ code.type {
 
 </ul>
 
-<h3 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/user/{username}</h3>
+<h2 class="sticky-top bg-body pt-3 pb-3 lh-1 border-bottom">/user/{username}</h2>
 <dl>
     <dt>Name</dt>
     <dd>/user/{username}</dd>
@@ -1988,8 +1802,8 @@ code.type {
     <dt>Variables</dt>
 <dd>
     <ul class="list-group mb-2 mt-2">
-        <li class="list-group-item bg-body-tertiary">
-    <span class="badge fw-normal fs-6 mb-1 px-2 py-1 fw-semibold text-warning-emphasis bg-warning-subtle border border-warning-subtle">username</span>
+        <li class="list-group-item bg-body-tertiary py-3">
+    <span class="badge fw-normal fs-6 mb-2 px-2 py-2 fw-semibold text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle">{username}</span>
 
     <dl class="row mb-0">
         <dt class="col-sm-2" title="Type">Type</dt>
@@ -2009,32 +1823,15 @@ code.type {
 
 </dl>
 <strong>Endpoints</strong>
-<ul class="list-group mb-2 mt-2">
+<ul class="list-group mb-4 mt-2">
     <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".DELETE-cc229e09dc5b248bd40a85046229a6ac" aria-expanded="false" aria-controls="DELETE-cc229e09dc5b248bd40a85046229a6ac">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Delete user</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-DELETE fs-6">DELETE</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-DELETE fs-5 me-2">DELETE</span>Delete user</h4>
         </div>
     </div>
-    <dl class="DELETE-cc229e09dc5b248bd40a85046229a6ac mt-2 collapse show">
-    <dt>Request</dt>
-    <dd>
-        <div class="list-group mb-2 mt-2">
-            <div class="list-group-item bg-body-tertiary py-3">
-                <dl class="row mb-0">
-                    
-                    
-                    
-                </dl>
-            </div>
-        </div>
-    </dd>
-</dl>
-
-    <dl class="DELETE-cc229e09dc5b248bd40a85046229a6ac mt-2 collapse show">
+    
+    <dl class="DELETE-cc229e09dc5b248bd40a85046229a6ac mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -2073,28 +1870,11 @@ code.type {
 <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".GET-421915ae642a409329c7d3ca26456f45" aria-expanded="false" aria-controls="GET-421915ae642a409329c7d3ca26456f45">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Get user by user name</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-GET fs-6">GET</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-GET fs-5 me-2">GET</span>Get user by user name</h4>
         </div>
     </div>
-    <dl class="GET-421915ae642a409329c7d3ca26456f45 mt-2 collapse show">
-    <dt>Request</dt>
-    <dd>
-        <div class="list-group mb-2 mt-2">
-            <div class="list-group-item bg-body-tertiary py-3">
-                <dl class="row mb-0">
-                    
-                    
-                    
-                </dl>
-            </div>
-        </div>
-    </dd>
-</dl>
-
-    <dl class="GET-421915ae642a409329c7d3ca26456f45 mt-2 collapse show">
+    
+    <dl class="GET-421915ae642a409329c7d3ca26456f45 mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">
@@ -2171,28 +1951,11 @@ code.type {
 <li class="list-group-item">
     <div class="cursor-pointer sticky-method d-flex align-items-baseline mb-0 sticky-top bg-body z-1 pt-2 pb-2" data-bs-toggle="collapse" data-bs-target=".PUT-ae8356015e8de5fe8acfe6ed7f869539" aria-expanded="false" aria-controls="PUT-ae8356015e8de5fe8acfe6ed7f869539">
         <div class="me-auto">
-            <h4 class="h5 mb-0">Updated user</h4>
-        </div>
-        <div>
-            <span class="badge http-method method-PUT fs-6">PUT</span>
+            <h4 class="h4 mb-0"><span class="badge http-method method-PUT fs-5 me-2">PUT</span>Updated user</h4>
         </div>
     </div>
-    <dl class="PUT-ae8356015e8de5fe8acfe6ed7f869539 mt-2 collapse show">
-    <dt>Request</dt>
-    <dd>
-        <div class="list-group mb-2 mt-2">
-            <div class="list-group-item bg-body-tertiary py-3">
-                <dl class="row mb-0">
-                    
-                    
-                    
-                </dl>
-            </div>
-        </div>
-    </dd>
-</dl>
-
-    <dl class="PUT-ae8356015e8de5fe8acfe6ed7f869539 mt-2 collapse show">
+    
+    <dl class="PUT-ae8356015e8de5fe8acfe6ed7f869539 mt-2 collapse">
     <dt>Response</dt>
     <dd>
         <ul class="list-group mb-2 mt-2">

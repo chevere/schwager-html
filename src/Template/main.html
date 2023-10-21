@@ -31,7 +31,6 @@
 code.type {
     color: #f47c13;
 }
-
 .http-method {
     border-style: solid;
     border-width: 1px;
@@ -69,16 +68,20 @@ code.type {
     border-color: var(--border-OPTIONS);
     color: var(--text-OPTIONS);
 }
-
 .badge-key {
     background-color: var(--bs-secondary-bg-subtle)!important;
     color: var(--bs-secondary-text-emphasis)!important;
     border-color: var(--bs-secondary-border-subtle)!important;
     font-weight: 600!important;
 }
-
 .sticky-method {
-    top: 3.8rem;
+    top: 4rem;
+    top: calc(2.05*(1.325rem + .9vw));
+}
+@media (min-width: 1200px) {
+    .sticky-method {
+        top: 4rem;
+    }
 }
 .row .fw-normal {
     text-overflow: ellipsis;
@@ -104,7 +107,7 @@ code.type {
 </style>
 </head>
 <body class="container-xxl">
-    <div class="d-flex align-items-baseline mb-4">
+    <div class="d-flex align-items-baseline mt-4 mb-4">
         <div>
             <h1 class="mb-0">%name%</h1>
         </div>

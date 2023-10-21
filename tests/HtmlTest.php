@@ -27,10 +27,16 @@ final class HtmlTest extends TestCase
     {
         $routes = require __DIR__ . '/../demo/routes.php';
         $router = router($routes);
-        $document = new DocumentSchema();
-        $testServer = new ServerSchema('testServerUrl', 'test');
-        $productionServer = new ServerSchema('productionServerUrl', 'test');
-        $spec = new Spec($router, $document, $testServer, $productionServer);
+        $document = new DocumentSchema(
+            api: 'schwager',
+            name: '🐶 Schwager Petstore',
+            version: '1.0.0'
+        );
+        $testServer = new ServerSchema(
+            url: 'demoServerUrl',
+            description: 'This is a sample server Petstore API spec.'
+        );
+        $spec = new Spec($router, $document, $testServer);
         $html = new Html($spec);
         $this->assertStringEqualsFile(
             __DIR__ . '/schwager.html',
