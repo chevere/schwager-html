@@ -34,11 +34,15 @@ $document = new DocumentSchema(
     name: '🐶 Schwager Petstore',
     version: '1.0.0'
 );
-$testServer = new ServerSchema(
+$demoServer = new ServerSchema(
     url: 'demoServerUrl',
     description: 'This is a sample server Petstore API spec.'
 );
-$spec = new Spec($router, $document, $testServer);
+$otherServer = new ServerSchema(
+    url: 'otherServerUrl',
+    description: 'This is a another URL.'
+);
+$spec = new Spec($router, $document, $demoServer, $otherServer);
 $html = new Html($spec);
 $file = fileForPath(__DIR__ . '/output/schwager.html');
 $file->createIfNotExists();

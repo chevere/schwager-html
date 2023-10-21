@@ -41,11 +41,11 @@ jobs:
         run: composer install --no-progress
       - name: Run PHPStan
         run: composer phpstan
+      - name: Setup demo
+        run: php demo/demo.php
       - name: Tests (PHPUnit)
         run: vendor/bin/phpunit --coverage-xml=build/logs/xml-coverage --log-junit=build/logs/junit.xml
       - name: Mutation testing (Infection)
         env:
           INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
         run: infection --coverage=build/logs --min-covered-msi=90 --threads=$(nproc) --logger-github --only-covered
-      - name: Setup demo
-        run: php demo/demo.php

@@ -18,7 +18,6 @@ use Chevere\Schwager\ServerSchema;
 use Chevere\Schwager\Spec;
 use Chevere\SchwagerHTML\Html;
 use PHPUnit\Framework\TestCase;
-use function Chevere\Filesystem\fileForPath;
 use function Chevere\Router\router;
 
 final class HtmlTest extends TestCase
@@ -32,20 +31,19 @@ final class HtmlTest extends TestCase
             name: '🐶 Schwager Petstore',
             version: '1.0.0'
         );
-        $testServer = new ServerSchema(
+        $demoServer = new ServerSchema(
             url: 'demoServerUrl',
             description: 'This is a sample server Petstore API spec.'
         );
-        $spec = new Spec($router, $document, $testServer);
+        $otherServer = new ServerSchema(
+            url: 'otherServerUrl',
+            description: 'This is a another URL.'
+        );
+        $spec = new Spec($router, $document, $demoServer, $otherServer);
         $html = new Html($spec);
         $this->assertStringEqualsFile(
-            __DIR__ . '/../demo/schwager.html',
+            __DIR__ . '/../demo/output/schwager.html',
             $html->__toString()
         );
-        // $this->expectNotToPerformAssertions();
-        // $file = fileForPath(__DIR__ . '/schwager.html');
-        // $file->createIfNotExists();
-        // $file->put($html->__toString());
-        // vdd($html->__toString());
     }
 }
