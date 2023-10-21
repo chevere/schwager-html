@@ -39,7 +39,7 @@ final class HtmlTest extends TestCase
         $spec = new Spec($router, $document, $testServer);
         $html = new Html($spec);
         $this->assertStringEqualsFile(
-            __DIR__ . '/schwager.html',
+            __DIR__ . '/../demo/schwager.html',
             $html->__toString()
         );
         // $this->expectNotToPerformAssertions();

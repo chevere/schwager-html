@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="../src/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
 <title>%name%</title>
 <style media="all">
 :root
@@ -75,8 +75,8 @@ code.type {
     font-weight: 600!important;
 }
 .sticky-method {
-    top: 4rem;
-    top: calc(2.05*(1.325rem + .9vw));
+    /* top: calc(4rem - 0.9vw); */
+    top: calc(3.4rem + 0.9vw);
 }
 @media (min-width: 1200px) {
     .sticky-method {
@@ -117,7 +117,7 @@ code.type {
     </div>
     %servers.html%
     %paths.html%
-    <script src="../src/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="../src/cssscript/bootstrap-auto-dark-mode.js"></script>
+    <script src="./bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./cssscript/bootstrap-auto-dark-mode.js"></script>
 </body>
 </html>

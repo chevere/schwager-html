@@ -16,11 +16,12 @@ namespace Chevere\SchwagerHTML;
 use Chevere\Schwager\Spec;
 use Chevere\Throwable\Exceptions\LogicException;
 use Stringable;
+use function Chevere\Filesystem\fileForPath;
 use function Chevere\Standard\arrayUnsetKey;
 
 final class Html implements Stringable
 {
-    public const TEMPLATES_DIR = __DIR__ . '/Template/';
+    public const TEMPLATE_DIR = __DIR__ . '/Template/';
 
     private string $html;
 
@@ -127,6 +128,8 @@ final class Html implements Stringable
             $paths .= str_replace($search, $replace, $this->pathHtml);
         }
         $this->html = str_replace('%paths.html%', $paths, $this->html);
+        $this->replaceStyles();
+        $this->replaceScripts();
     }
 
     public function __toString()
@@ -438,7 +441,7 @@ final class Html implements Stringable
 
     private function getTemplate(string $name): string
     {
-        return file_get_contents(self::TEMPLATES_DIR . $name)
+        return file_get_contents(self::TEMPLATE_DIR . $name)
             ?: throw new LogicException();
     }
 
@@ -478,5 +481,42 @@ final class Html implements Stringable
             <{$tag}{$attribute}>{$content}</{$tag}>
             HTML,
         };
+    }
+
+    private function replaceStyles(): void
+    {
+        preg_match_all(
+            '#<link rel="stylesheet".*(href=\"(.*)\")>#',
+            $this->html,
+            $files
+        );
+        foreach ($files[0] as $pos => $match) {
+            $fileMatch = fileForPath(self::TEMPLATE_DIR . $files[2][$pos]);
+            $replace = '<style media="all">' . $fileMatch->getContents() . '</style>';
+            $this->replace($match, $replace);
+        }
+    }
+
+    private function replaceScripts(): void
+    {
+        preg_match_all("#<script .*(src=\"(.*)\")><\/script>#", $this->html, $files);
+        foreach ($files[0] as $pos => $match) {
+            $fileMatch = fileForPath(self::TEMPLATE_DIR . $files[2][$pos]);
+            /** @var string $replace */
+            $replace = str_replace(' ' . $files[1][$pos], '', $match);
+            $replace = str_replace(
+                '></script>',
+                '>'
+                    . $fileMatch->getContents()
+                    . '</script>',
+                $replace
+            );
+            $this->replace($match, $replace);
+        }
+    }
+
+    private function replace(string $search, string $replace): void
+    {
+        $this->html = str_replace($search, $replace, $this->html);
     }
 }
