@@ -102,7 +102,7 @@ code.type {
     text-overflow: ellipsis;
 }
 .row dt {
-    font-weight: normal;
+    font-weight: 500;
 }
 
 pre code {
@@ -548,60 +548,65 @@ parameters:
 <dd class="col-sm-10">Content-Type: application/json</dd>
 
     <dt class="col-sm-2" title="Body">Body</dt>
-<dd class="col-sm-10"><pre><code class="language-yaml">type: generic
+<dd class="col-sm-10"><pre><code class="language-yaml">type: union
 parameters:
-    K:
+    -
         type: 'array#map'
+    -
+        type: generic
         parameters:
-            id:
+            K:
                 type: integer
-            category:
+            V:
                 type: 'array#map'
                 parameters:
                     id:
                         type: integer
+                    category:
+                        type: 'array#map'
+                        parameters:
+                            id:
+                                type: integer
+                            name:
+                                type: string
+                                regex: '^.*$'
                     name:
                         type: string
                         regex: '^.*$'
-            name:
-                type: string
-                regex: '^.*$'
-            photoUrls:
-                type: union
-                parameters:
-                    -
-                        type: 'array#map'
-                    -
-                        type: generic
+                    photoUrls:
+                        type: union
                         parameters:
-                            K:
-                                type: integer
-                            V:
-                                type: string
-                                regex: '^.*$'
-            tags:
-                type: union
-                parameters:
-                    -
-                        type: 'array#map'
-                    -
-                        type: generic
-                        parameters:
-                            K:
-                                type: integer
-                            V:
+                            -
                                 type: 'array#map'
+                            -
+                                type: generic
                                 parameters:
-                                    id:
+                                    K:
                                         type: integer
-                                    name:
+                                    V:
                                         type: string
                                         regex: '^.*$'
-            status:
-                type: string
-                regex: ^available|pending|sold$
-    V:
-        type: 'array#map'
+                    tags:
+                        type: union
+                        parameters:
+                            -
+                                type: 'array#map'
+                            -
+                                type: generic
+                                parameters:
+                                    K:
+                                        type: integer
+                                    V:
+                                        type: 'array#map'
+                                        parameters:
+                                            id:
+                                                type: integer
+                                            name:
+                                                type: string
+                                                regex: '^.*$'
+                    status:
+                        type: string
+                        regex: ^available|pending|sold$
 </code></pre></dd>
 
 </dl>
@@ -680,60 +685,65 @@ parameters:
 <dd class="col-sm-10">Content-Type: application/json</dd>
 
     <dt class="col-sm-2" title="Body">Body</dt>
-<dd class="col-sm-10"><pre><code class="language-yaml">type: generic
+<dd class="col-sm-10"><pre><code class="language-yaml">type: union
 parameters:
-    K:
+    -
         type: 'array#map'
+    -
+        type: generic
         parameters:
-            id:
+            K:
                 type: integer
-            category:
+            V:
                 type: 'array#map'
                 parameters:
                     id:
                         type: integer
+                    category:
+                        type: 'array#map'
+                        parameters:
+                            id:
+                                type: integer
+                            name:
+                                type: string
+                                regex: '^.*$'
                     name:
                         type: string
                         regex: '^.*$'
-            name:
-                type: string
-                regex: '^.*$'
-            photoUrls:
-                type: union
-                parameters:
-                    -
-                        type: 'array#map'
-                    -
-                        type: generic
+                    photoUrls:
+                        type: union
                         parameters:
-                            K:
-                                type: integer
-                            V:
-                                type: string
-                                regex: '^.*$'
-            tags:
-                type: union
-                parameters:
-                    -
-                        type: 'array#map'
-                    -
-                        type: generic
-                        parameters:
-                            K:
-                                type: integer
-                            V:
+                            -
                                 type: 'array#map'
+                            -
+                                type: generic
                                 parameters:
-                                    id:
+                                    K:
                                         type: integer
-                                    name:
+                                    V:
                                         type: string
                                         regex: '^.*$'
-            status:
-                type: string
-                regex: ^available|pending|sold$
-    V:
-        type: 'array#map'
+                    tags:
+                        type: union
+                        parameters:
+                            -
+                                type: 'array#map'
+                            -
+                                type: generic
+                                parameters:
+                                    K:
+                                        type: integer
+                                    V:
+                                        type: 'array#map'
+                                        parameters:
+                                            id:
+                                                type: integer
+                                            name:
+                                                type: string
+                                                regex: '^.*$'
+                    status:
+                        type: string
+                        regex: ^available|pending|sold$
 </code></pre></dd>
 
 </dl>

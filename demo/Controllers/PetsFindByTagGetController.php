@@ -44,29 +44,31 @@ final class PetsFindByTagGetController extends Controller
 
     public static function acceptResponse(): ParameterInterface
     {
-        return generic(
+        return union(
             arrayp(),
-            arrayp(
-                id: integer(),
-                category: arrayp(
+            generic(
+                arrayp(
                     id: integer(),
+                    category: arrayp(
+                        id: integer(),
+                        name: string(),
+                    ),
                     name: string(),
-                ),
-                name: string(),
-                photoUrls: union(
-                    arrayp(),
-                    generic(string())
-                ),
-                tags: union(
-                    arrayp(),
-                    generic(
-                        arrayp(
-                            id: integer(),
-                            name: string(),
+                    photoUrls: union(
+                        arrayp(),
+                        generic(string())
+                    ),
+                    tags: union(
+                        arrayp(),
+                        generic(
+                            arrayp(
+                                id: integer(),
+                                name: string(),
+                            )
                         )
-                    )
-                ),
-                status: enum('available', 'pending', 'sold'),
+                    ),
+                    status: enum('available', 'pending', 'sold'),
+                )
             )
         );
     }
