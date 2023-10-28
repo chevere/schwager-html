@@ -15,7 +15,8 @@
         "chevere/chevere": "^3.2.x-dev",
         "chevere/http": "^0.3",
         "chevere/router": "^0.5",
-        "chevere/schwager": "^0.2.x-dev"
+        "chevere/schwager": "^0.2.x-dev",
+        "symfony/yaml": "^6.3"
     },
     "require-dev": {
         "chevere/var-dump": "^0.8.1",
