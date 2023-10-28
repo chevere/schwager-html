@@ -16,8 +16,9 @@ namespace Chevere\SchwagerHTML;
 use Chevere\Schwager\Spec;
 use Chevere\Throwable\Exceptions\LogicException;
 use Stringable;
+use Symfony\Component\Yaml\Yaml;
 use function Chevere\Filesystem\fileForPath;
-use function Chevere\Standard\arrayUnsetKey;
+use function Chevere\Standard\arrayFilterBoth;
 
 final class Html implements Stringable
 {
@@ -65,7 +66,19 @@ final class Html implements Stringable
         private array $array = []
     ) {
         if ($this->array === []) {
-            $this->array = $this->spec->toArray();
+            $this->array = arrayFilterBoth($spec->toArray(), function ($v, $k) {
+                return match (true) {
+                    $v === null => false,
+                    $v === [] => false,
+                    $v === '' => false,
+                    $k === 'required' && $v === true => false,
+                    // $k === 'regex' && $v === '^.*$' => false,
+                    $k === 'body' && $v === [
+                        'type' => 'array#map',
+                    ] => false,
+                    default => true,
+                };
+            });
         }
         $this->html = $this->getTemplate('main.html');
         $search = [
@@ -158,7 +171,7 @@ final class Html implements Stringable
             $description = $variable['description'] ?? '';
             $replace = [
                 str_replace('%name%', "{{$name}}", $this->variableNameHtml),
-                $this->description('Type', $this->type($type)),
+                $this->description('Type', $type),
                 $this->description('Regex', $this->code($regex)),
                 $this->description('Description', $description),
             ];
@@ -168,104 +181,6 @@ final class Html implements Stringable
         return $return === ''
             ? ''
             : str_replace('%variables%', $return, $this->variablesHtml);
-    }
-
-    /**
-     * @param array<string, array<string, null|string|bool>> $query
-     */
-    private function query(array $query): string
-    {
-        $return = '';
-        foreach ($query as $name => $string) {
-            $properties = '';
-            $map = arrayUnsetKey($string, 'required', 'type');
-            foreach ($map as $property => $value) {
-                $property = (string) $property;
-                $properties .= $this->description(
-                    $property,
-                    (string) ($value ?? '')
-                );
-            }
-            /** @var string $type */
-            $type = $string['type'];
-            /** @var boolean $required */
-            $required = $string['required'];
-            $return .= $this->description(
-                $name,
-                $this->type($type)
-                    . $this->optional($required)
-                    . $this->descriptionList($properties)
-            );
-        }
-
-        return $return;
-    }
-
-    /**
-     * @phpstan-ignore-next-line
-     */
-    private function body(array $body): string
-    {
-        $type = $body['type'] ?? '';
-        if (is_array($type)) {
-            $type = ''; // @codeCoverageIgnore
-        }
-        $return = '';
-        if ($type === '') {
-            foreach ($body as $property => $value) {
-                $required = $value['required'] ?? true;
-                $described = $this->body($value);
-                $return .= $this->descriptionList(
-                    $this->description(
-                        $property,
-                        $this->type($value['type'])
-                        . $this->optional($required)
-                    ) . $described
-                );
-            }
-
-            return $return;
-        }
-        $parameters = $body['parameters'] ?? [];
-        if ($type === 'union') {
-            foreach ($parameters as $pos => $param) {
-                $return .= $this->description(
-                    $this->badge((string) $pos, 'badge-key'),
-                    $this->type($param['type'])
-                    . $this->body($param)
-                );
-            }
-
-            return $return;
-        }
-        if ($type === 'generic') {
-            foreach ($parameters as $name => $parameter) {
-                $return .= $this->descriptionList(
-                    $this->description(
-                        $this->badge($name, 'badge-key'),
-                        $this->type($parameter['type'])
-                        . $this->body($parameter)
-                    )
-                );
-            }
-
-            return $return;
-        }
-
-        if (str_starts_with($type, 'array')) {
-            return $this->body($parameters);
-        }
-
-        return $return;
-    }
-
-    private function descriptionList(string $description): string
-    {
-        if ($description === '') {
-            return ''; // @codeCoverageIgnore
-        }
-
-        return str_replace('%list%', $description, $this->descriptionList);
     }
 
     /**
@@ -310,21 +225,27 @@ final class Html implements Stringable
             '',
             '',
         ];
-        $query = $this->query($request['query'] ?? []);
+        $query = $request['query'] ?? '';
         if ($query !== '') {
-            $replace[1] = $this->description(
-                'Query',
-                $this->type('array&lt;string&gt;')
-            )
-            . $this->descriptionList($query);
+            $query = Yaml::dump($query, 20);
         }
-        $body = $this->body($request['body'] ?? []);
+        if ($query !== '') {
+            $replace[2] .= $this->description(
+                'Query string',
+                <<<HTML
+                <pre><code class="language-yaml">{$query}</code></pre>
+                HTML
+            );
+        }
+        $body = $request['body'] ?? '';
         if ($body !== '') {
-            $replace[2] = $this->description(
+            $body = Yaml::dump($body, 20);
+            $replace[2] .= $this->description(
                 'Body',
-                $this->type($request['body']['type'] ?? '')
-            )
-            . $body;
+                <<<HTML
+                <pre><code class="language-yaml">{$body}</code></pre>
+                HTML
+            );
         }
         $replace = array_filter($replace);
 
@@ -361,7 +282,10 @@ final class Html implements Stringable
                 '%body%',
             ];
             foreach ($el as $response) {
-                $body = $this->body($response['body'] ?? []);
+                $body = $response['body'] ?? '';
+                if ($body !== '') {
+                    $body = Yaml::dump($body, 20);
+                }
                 $headers = $this->headers($response['headers'] ?? []);
                 $replace = [
                     $this->description('Context', $response['context'] ?? ''),
@@ -371,10 +295,10 @@ final class Html implements Stringable
                 if ($body !== '') {
                     $replace[2] .= $this->description(
                         'Body',
-                        $this->type($response['body']['type'] ?? '')
-                        . $this->div($response['body']['description'] ?? '')
-                    )
-                    . $body;
+                        <<<HTML
+                        <pre><code class="language-yaml">{$body}</code></pre>
+                        HTML
+                    );
                 }
                 $descriptions .= str_replace(
                     $search,
