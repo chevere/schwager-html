@@ -50,13 +50,9 @@ final class Html implements Stringable
 
     private string $endpointsHtml;
 
-    private string $badgeHtml;
-
     private string $serverHtml;
 
     private string $serversHtml;
-
-    private string $descriptionList;
 
     /**
      * @phpstan-ignore-next-line
@@ -102,10 +98,8 @@ final class Html implements Stringable
         $this->endpointHtml = $this->getTemplate('endpoint.html');
         $this->endpointsHtml = $this->getTemplate('endpoints.html');
         $this->statusCodeHtml = $this->getTemplate('status-code.html');
-        $this->badgeHtml = $this->getTemplate('badge.html');
         $this->serverHtml = $this->getTemplate('server.html');
         $this->serversHtml = $this->getTemplate('servers.html');
-        $this->descriptionList = $this->getTemplate('description-list.html');
         $servers = '';
         foreach ($this->spec->servers() as $server) {
             $search = [
@@ -320,42 +314,6 @@ final class Html implements Stringable
         }
 
         return str_replace('%response-list.html%', $responses, $this->responseHtml);
-    }
-
-    private function optional(bool $isRequired): string
-    {
-        if (! $isRequired) {
-            return $this->badge('optional', 'badge-key');
-        }
-
-        return '';
-    }
-
-    private function type(string $content): string
-    {
-        return $this->tag('code', 'type d-inline-block me-1', $content);
-    }
-
-    private function badge(string $name, string $class = ''): string
-    {
-        return str_replace(
-            [
-                '%name%',
-                '%class%',
-            ],
-            [
-                $name,
-                $class !== ''
-                    ? " {$class}"
-                    : '',
-            ],
-            $this->badgeHtml
-        );
-    }
-
-    private function div(string $content, string $class = ''): string
-    {
-        return $this->tag('div', $class, $content);
     }
 
     private function code(string $content, string $class = ''): string
