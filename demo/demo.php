@@ -47,7 +47,9 @@ $html = new Html($spec);
 $file = fileForPath(__DIR__ . '/output/schwager.html');
 $file->createIfNotExists();
 $file->put($html->__toString());
+$result = $file->path()->__toString();
 echo <<<PLAIN
-[OK] {$file->path()->__toString()}
+[OK] {$result}
 
 PLAIN;
+passthru("open {$result}");
