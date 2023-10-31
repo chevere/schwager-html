@@ -24,7 +24,7 @@ use function Chevere\Parameter\arrayp;
 use function Chevere\Parameter\arrayString;
 use function Chevere\Parameter\enum;
 use function Chevere\Parameter\generic;
-use function Chevere\Parameter\integer;
+use function Chevere\Parameter\int;
 use function Chevere\Parameter\string;
 use function Chevere\Parameter\union;
 
@@ -48,9 +48,9 @@ final class PetsFindByStatusGetController extends Controller
             arrayp(),
             generic(
                 arrayp(
-                    id: integer(),
+                    id: int(),
                     category: arrayp(
-                        id: integer(),
+                        id: int(),
                         name: string(),
                     ),
                     name: string(),
@@ -62,7 +62,7 @@ final class PetsFindByStatusGetController extends Controller
                         arrayp(),
                         generic(
                             arrayp(
-                                id: integer(),
+                                id: int(),
                                 name: string(),
                             )
                         )

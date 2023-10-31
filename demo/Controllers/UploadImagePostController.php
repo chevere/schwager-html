@@ -21,7 +21,7 @@ use Chevere\Http\Status;
 use Chevere\Parameter\Interfaces\ArrayParameterInterface;
 use Chevere\Parameter\Interfaces\ParameterInterface;
 use function Chevere\Parameter\arrayp;
-use function Chevere\Parameter\integer;
+use function Chevere\Parameter\int;
 use function Chevere\Parameter\string;
 
 #[Description('uploads an image')]
@@ -42,7 +42,7 @@ final class UploadImagePostController extends Controller
     public static function acceptResponse(): ParameterInterface
     {
         return arrayp(
-            code: integer(),
+            code: int(),
             type: string(),
             message: string(),
         );

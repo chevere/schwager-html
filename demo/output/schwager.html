@@ -288,12 +288,12 @@ regex: '^.*$'
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
     id:
-        type: integer
+        type: int
     category:
         type: 'array#map'
         parameters:
             id:
-                type: integer
+                type: int
             name:
                 type: string
                 regex: '^.*$'
@@ -309,7 +309,7 @@ parameters:
                 type: generic
                 parameters:
                     K:
-                        type: integer
+                        type: int
                     V:
                         type: string
                         regex: '^.*$'
@@ -322,12 +322,12 @@ parameters:
                 type: generic
                 parameters:
                     K:
-                        type: integer
+                        type: int
                     V:
                         type: 'array#map'
                         parameters:
                             id:
-                                type: integer
+                                type: int
                             name:
                                 type: string
                                 regex: '^.*$'
@@ -387,12 +387,12 @@ parameters:
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
     id:
-        type: integer
+        type: int
     category:
         type: 'array#map'
         parameters:
             id:
-                type: integer
+                type: int
             name:
                 type: string
                 regex: '^.*$'
@@ -408,7 +408,7 @@ parameters:
                 type: generic
                 parameters:
                     K:
-                        type: integer
+                        type: int
                     V:
                         type: string
                         regex: '^.*$'
@@ -421,12 +421,12 @@ parameters:
                 type: generic
                 parameters:
                     K:
-                        type: integer
+                        type: int
                     V:
                         type: 'array#map'
                         parameters:
                             id:
-                                type: integer
+                                type: int
                             name:
                                 type: string
                                 regex: '^.*$'
@@ -556,17 +556,17 @@ parameters:
         type: generic
         parameters:
             K:
-                type: integer
+                type: int
             V:
                 type: 'array#map'
                 parameters:
                     id:
-                        type: integer
+                        type: int
                     category:
                         type: 'array#map'
                         parameters:
                             id:
-                                type: integer
+                                type: int
                             name:
                                 type: string
                                 regex: '^.*$'
@@ -582,7 +582,7 @@ parameters:
                                 type: generic
                                 parameters:
                                     K:
-                                        type: integer
+                                        type: int
                                     V:
                                         type: string
                                         regex: '^.*$'
@@ -595,12 +595,12 @@ parameters:
                                 type: generic
                                 parameters:
                                     K:
-                                        type: integer
+                                        type: int
                                     V:
                                         type: 'array#map'
                                         parameters:
                                             id:
-                                                type: integer
+                                                type: int
                                             name:
                                                 type: string
                                                 regex: '^.*$'
@@ -693,17 +693,17 @@ parameters:
         type: generic
         parameters:
             K:
-                type: integer
+                type: int
             V:
                 type: 'array#map'
                 parameters:
                     id:
-                        type: integer
+                        type: int
                     category:
                         type: 'array#map'
                         parameters:
                             id:
-                                type: integer
+                                type: int
                             name:
                                 type: string
                                 regex: '^.*$'
@@ -719,7 +719,7 @@ parameters:
                                 type: generic
                                 parameters:
                                     K:
-                                        type: integer
+                                        type: int
                                     V:
                                         type: string
                                         regex: '^.*$'
@@ -732,12 +732,12 @@ parameters:
                                 type: generic
                                 parameters:
                                     K:
-                                        type: integer
+                                        type: int
                                     V:
                                         type: 'array#map'
                                         parameters:
                                             id:
-                                                type: integer
+                                                type: int
                                             name:
                                                 type: string
                                                 regex: '^.*$'
@@ -912,12 +912,12 @@ parameters:
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
     id:
-        type: integer
+        type: int
     category:
         type: 'array#map'
         parameters:
             id:
-                type: integer
+                type: int
             name:
                 type: string
                 regex: '^.*$'
@@ -933,7 +933,7 @@ parameters:
                 type: generic
                 parameters:
                     K:
-                        type: integer
+                        type: int
                     V:
                         type: string
                         regex: '^.*$'
@@ -946,12 +946,12 @@ parameters:
                 type: generic
                 parameters:
                     K:
-                        type: integer
+                        type: int
                     V:
                         type: 'array#map'
                         parameters:
                             id:
-                                type: integer
+                                type: int
                             name:
                                 type: string
                                 regex: '^.*$'
@@ -1137,7 +1137,7 @@ parameters:
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
     code:
-        type: integer
+        type: int
     type:
         type: string
         regex: '^.*$'
@@ -1196,7 +1196,7 @@ parameters:
         type: string
         regex: '^.*$'
     V:
-        type: integer
+        type: int
 </code></pre></dd>
 
 </dl>
@@ -1237,11 +1237,11 @@ parameters:
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
     id:
-        type: integer
+        type: int
     petId:
-        type: integer
+        type: int
     quantity:
-        type: integer
+        type: int
     shipDate:
         type: string
         description: 'YYYY-MM-DD hh:mm:ss'
@@ -1250,7 +1250,7 @@ parameters:
         type: string
         regex: ^placed|approved|delivered$
     complete:
-        type: boolean
+        type: bool
 </code></pre></dd>
 
                     
@@ -1279,11 +1279,11 @@ parameters:
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
     id:
-        type: integer
+        type: int
     petId:
-        type: integer
+        type: int
     quantity:
-        type: integer
+        type: int
     shipDate:
         type: string
         description: 'YYYY-MM-DD hh:mm:ss'
@@ -1292,7 +1292,7 @@ parameters:
         type: string
         regex: ^placed|approved|delivered$
     complete:
-        type: boolean
+        type: bool
 </code></pre></dd>
 
 </dl>
@@ -1421,11 +1421,11 @@ parameters:
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
     id:
-        type: integer
+        type: int
     petId:
-        type: integer
+        type: int
     quantity:
-        type: integer
+        type: int
     shipDate:
         type: string
         description: 'YYYY-MM-DD hh:mm:ss'
@@ -1434,7 +1434,7 @@ parameters:
         type: string
         regex: ^placed|approved|delivered$
     complete:
-        type: boolean
+        type: bool
 </code></pre></dd>
 
 </dl>
@@ -1499,7 +1499,7 @@ parameters:
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
     id:
-        type: integer
+        type: int
     username:
         type: string
         regex: '^.*$'
@@ -1519,7 +1519,7 @@ parameters:
         type: string
         regex: '^.*$'
     userStatus:
-        type: integer
+        type: int
 </code></pre></dd>
 
                     
@@ -1587,12 +1587,12 @@ parameters:
         type: generic
         parameters:
             K:
-                type: integer
+                type: int
             V:
                 type: 'array#map'
                 parameters:
                     id:
-                        type: integer
+                        type: int
                     username:
                         type: string
                         regex: '^.*$'
@@ -1612,7 +1612,7 @@ parameters:
                         type: string
                         regex: '^.*$'
                     userStatus:
-                        type: integer
+                        type: int
 </code></pre></dd>
 
                     
@@ -1682,12 +1682,12 @@ parameters:
         type: generic
         parameters:
             K:
-                type: integer
+                type: int
             V:
                 type: 'array#map'
                 parameters:
                     id:
-                        type: integer
+                        type: int
                     username:
                         type: string
                         regex: '^.*$'
@@ -1707,7 +1707,7 @@ parameters:
                         type: string
                         regex: '^.*$'
                     userStatus:
-                        type: integer
+                        type: int
 </code></pre></dd>
 
                     
@@ -1850,7 +1850,7 @@ parameters:
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
     id:
-        type: integer
+        type: int
     username:
         type: string
         regex: '^.*$'
@@ -1870,7 +1870,7 @@ parameters:
         type: string
         regex: '^.*$'
     userStatus:
-        type: integer
+        type: int
 </code></pre></dd>
 
 </dl>

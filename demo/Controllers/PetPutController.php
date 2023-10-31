@@ -23,7 +23,7 @@ use Chevere\Parameter\Interfaces\ParameterInterface;
 use function Chevere\Parameter\arrayp;
 use function Chevere\Parameter\enum;
 use function Chevere\Parameter\generic;
-use function Chevere\Parameter\integer;
+use function Chevere\Parameter\int;
 use function Chevere\Parameter\null;
 use function Chevere\Parameter\string;
 use function Chevere\Parameter\union;
@@ -38,9 +38,9 @@ final class PetPutController extends Controller
     public static function acceptBody(): ArrayParameterInterface
     {
         return arrayp(
-            id: integer(),
+            id: int(),
             category: arrayp(
-                id: integer(),
+                id: int(),
                 name: string(),
             ),
             name: string(),
@@ -52,7 +52,7 @@ final class PetPutController extends Controller
                 arrayp(),
                 generic(
                     arrayp(
-                        id: integer(),
+                        id: int(),
                         name: string(),
                     )
                 )

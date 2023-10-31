@@ -20,7 +20,7 @@ use Chevere\Http\Status;
 use Chevere\Parameter\Interfaces\ArrayParameterInterface;
 use Chevere\Parameter\Interfaces\ParameterInterface;
 use function Chevere\Parameter\arrayp;
-use function Chevere\Parameter\integer;
+use function Chevere\Parameter\int;
 use function Chevere\Parameter\null;
 use function Chevere\Parameter\string;
 
@@ -33,14 +33,14 @@ final class UsersPostController extends Controller
     public static function acceptBody(): ArrayParameterInterface
     {
         return arrayp(
-            id: integer(),
+            id: int(),
             username: string(),
             firstName: string(),
             lastName: string(),
             email: string(),
             password: string(),
             phone: string(),
-            userStatus: integer()
+            userStatus: int()
         );
     }
 

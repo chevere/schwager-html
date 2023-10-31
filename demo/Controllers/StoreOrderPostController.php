@@ -21,10 +21,10 @@ use Chevere\Http\Status;
 use Chevere\Parameter\Interfaces\ArrayParameterInterface;
 use Chevere\Parameter\Interfaces\ParameterInterface;
 use function Chevere\Parameter\arrayp;
-use function Chevere\Parameter\boolean;
+use function Chevere\Parameter\bool;
 use function Chevere\Parameter\datetime;
 use function Chevere\Parameter\enum;
-use function Chevere\Parameter\integer;
+use function Chevere\Parameter\int;
 
 #[Description('Place an order for a pet')]
 #[Response(
@@ -36,24 +36,24 @@ final class StoreOrderPostController extends Controller
     public static function acceptBody(): ArrayParameterInterface
     {
         return arrayp(
-            id: integer(),
-            petId: integer(),
-            quantity: integer(),
+            id: int(),
+            petId: int(),
+            quantity: int(),
             shipDate: datetime(),
             status: enum('placed', 'approved', 'delivered'),
-            complete: boolean()
+            complete: bool()
         );
     }
 
     public static function acceptResponse(): ParameterInterface
     {
         return arrayp(
-            id: integer(),
-            petId: integer(),
-            quantity: integer(),
+            id: int(),
+            petId: int(),
+            quantity: int(),
             shipDate: datetime(),
             status: enum('placed', 'approved', 'delivered'),
-            complete: boolean()
+            complete: bool()
         );
     }
 

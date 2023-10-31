@@ -20,10 +20,10 @@ use Chevere\Http\Header;
 use Chevere\Http\Status;
 use Chevere\Parameter\Interfaces\ParameterInterface;
 use function Chevere\Parameter\arrayp;
-use function Chevere\Parameter\boolean;
+use function Chevere\Parameter\bool;
 use function Chevere\Parameter\datetime;
 use function Chevere\Parameter\enum;
-use function Chevere\Parameter\integer;
+use function Chevere\Parameter\int;
 
 #[Description('Find purchase order by ID')]
 #[Response(
@@ -35,12 +35,12 @@ final class StoreOrderGetController extends Controller
     public static function acceptResponse(): ParameterInterface
     {
         return arrayp(
-            id: integer(),
-            petId: integer(),
-            quantity: integer(),
+            id: int(),
+            petId: int(),
+            quantity: int(),
             shipDate: datetime(),
             status: enum('placed', 'approved', 'delivered'),
-            complete: boolean()
+            complete: bool()
         );
     }
 

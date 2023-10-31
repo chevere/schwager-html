@@ -20,7 +20,7 @@ use Chevere\Http\Header;
 use Chevere\Http\Status;
 use Chevere\Parameter\Interfaces\ParameterInterface;
 use function Chevere\Parameter\arrayp;
-use function Chevere\Parameter\integer;
+use function Chevere\Parameter\int;
 use function Chevere\Parameter\string;
 
 #[Description('Get user by user name')]
@@ -33,14 +33,14 @@ final class UserGetController extends Controller
     public static function acceptResponse(): ParameterInterface
     {
         return arrayp(
-            id: integer(),
+            id: int(),
             username: string(),
             firstName: string(),
             lastName: string(),
             email: string(),
             password: string(),
             phone: string(),
-            userStatus: integer()
+            userStatus: int()
         );
     }
 
