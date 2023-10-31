@@ -187,8 +187,7 @@ final class Html implements Stringable
             $request = $this->request($endpoint['request'] ?? []);
             $responses = $this->responses($endpoint['responses'] ?? []);
             $return .= str_replace(
-                [
-                    '%request.html%', '%responses.html%'],
+                ['%request.html%', '%responses.html%'],
                 [$request, $responses],
                 $this->endpointHtml
             );
