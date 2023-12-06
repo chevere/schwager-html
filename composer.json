@@ -12,11 +12,14 @@
         }
     ],
     "require": {
-        "chevere/chevere": "^4.0.x-dev",
+        "php": "^8.1",
+        "chevere/action": "^1.0.x-dev",
         "chevere/http": "^0.4.x-dev",
+        "chevere/parameter": "^1.0.x-dev",
         "chevere/router": "^0.6.x-dev",
         "chevere/schwager": "^0.2.x-dev",
-        "symfony/yaml": "^6.3"
+        "chevere/standard": "^1.0.x-dev",
+        "symfony/yaml": "^7.0"
     },
     "require-dev": {
         "chevere/var-dump": "^0.10.x-dev",

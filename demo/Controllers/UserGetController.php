@@ -13,11 +13,12 @@ declare(strict_types=1);
 
 namespace Chevere\Demo\Controllers;
 
-use Chevere\Attributes\Description;
+use Chevere\Http\Attributes\Description;
 use Chevere\Http\Attributes\Response;
 use Chevere\Http\Controller;
 use Chevere\Http\Header;
 use Chevere\Http\Status;
+use Chevere\Parameter\Attributes\StringAttr;
 use Chevere\Parameter\Interfaces\ParameterInterface;
 use function Chevere\Parameter\arrayp;
 use function Chevere\Parameter\int;
@@ -45,7 +46,7 @@ final class UserGetController extends Controller
     }
 
     public function run(
-        #[Description('The name that needs to be fetched')]
+        #[StringAttr(description: 'The name that needs to be fetched')]
         string $username
     ): array {
         return [];

@@ -13,13 +13,12 @@ declare(strict_types=1);
 
 namespace Chevere\Tests\src;
 
-use Chevere\Attributes\Description;
-use Chevere\Attributes\Regex;
 use Chevere\Http\Attributes\Request;
 use Chevere\Http\Attributes\Response;
 use Chevere\Http\Controller;
 use Chevere\Http\Header;
 use Chevere\Http\Status;
+use Chevere\Parameter\Attributes\StringAttr;
 use Chevere\Parameter\Interfaces\ArrayParameterInterface;
 use Chevere\Parameter\Interfaces\ArrayStringParameterInterface;
 use Chevere\Parameter\Interfaces\ParameterInterface;
@@ -28,7 +27,7 @@ use function Chevere\Parameter\arrayString;
 use function Chevere\Parameter\date;
 use function Chevere\Parameter\float;
 use function Chevere\Parameter\generic;
-use function Chevere\Parameter\integer;
+use function Chevere\Parameter\int;
 use function Chevere\Parameter\null;
 use function Chevere\Parameter\string;
 use function Chevere\Parameter\time;
@@ -58,10 +57,10 @@ class GetController extends Controller
         return arrayp()->withOptional(
             arreglo: arrayp(
                 string: string(),
-                integer: integer(),
+                integer: int(),
             ),
-            rate: float(minimum: 16.5),
-            hours: integer(minimum: 1, maximum: 8),
+            rate: float(min: 16.5),
+            hours: int(min: 1, max: 8),
             union: union(null(), string()),
             generic: generic(
                 string(),
@@ -75,11 +74,9 @@ class GetController extends Controller
     }
 
     public function run(
-        #[Description('The user integer id')]
-        #[Regex('/^[0-9]+$/')]
+        #[StringAttr('/^[0-9]+$/', 'The user integer id')]
         string $id,
-        #[Description('The user name')]
-        #[Regex('/^[\w]+$/')]
+        #[StringAttr('/^[\w]+$/', 'The user name')]
         string $name
     ): array {
         return [

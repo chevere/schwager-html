@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Chevere\Demo\Controllers;
 
-use Chevere\Attributes\Description;
+use Chevere\Http\Attributes\Description;
 use Chevere\Http\Attributes\Response;
 use Chevere\Http\Controller;
 use Chevere\Http\Header;

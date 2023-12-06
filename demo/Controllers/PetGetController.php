@@ -13,11 +13,12 @@ declare(strict_types=1);
 
 namespace Chevere\Demo\Controllers;
 
-use Chevere\Attributes\Description;
+use Chevere\Http\Attributes\Description;
 use Chevere\Http\Attributes\Response;
 use Chevere\Http\Controller;
 use Chevere\Http\Header;
 use Chevere\Http\Status;
+use Chevere\Parameter\Attributes\StringAttr;
 use Chevere\Parameter\Interfaces\ArrayStringParameterInterface;
 use Chevere\Parameter\Interfaces\ParameterInterface;
 use function Chevere\Parameter\arrayp;
@@ -69,7 +70,7 @@ final class PetGetController extends Controller
     }
 
     public function run(
-        #[Description('ID of pet to return')]
+        #[StringAttr(description: 'ID of pet to return')]
         string $petId
     ): array {
         return [];

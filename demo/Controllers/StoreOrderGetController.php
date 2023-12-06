@@ -13,11 +13,12 @@ declare(strict_types=1);
 
 namespace Chevere\Demo\Controllers;
 
-use Chevere\Attributes\Description;
+use Chevere\Http\Attributes\Description;
 use Chevere\Http\Attributes\Response;
 use Chevere\Http\Controller;
 use Chevere\Http\Header;
 use Chevere\Http\Status;
+use Chevere\Parameter\Attributes\StringAttr;
 use Chevere\Parameter\Interfaces\ParameterInterface;
 use function Chevere\Parameter\arrayp;
 use function Chevere\Parameter\bool;
@@ -45,7 +46,7 @@ final class StoreOrderGetController extends Controller
     }
 
     public function run(
-        #[Description('ID of pet that needs to be fetched')]
+        #[StringAttr(description: 'ID of pet that needs to be fetched')]
         string $orderId
     ): array {
         return [];

@@ -15,7 +15,6 @@ use Chevere\Schwager\DocumentSchema;
 use Chevere\Schwager\ServerSchema;
 use Chevere\Schwager\Spec;
 use Chevere\SchwagerHTML\Html;
-use function Chevere\Filesystem\fileForPath;
 use function Chevere\Router\router;
 
 foreach (['/../', '/../../../../'] as $path) {
@@ -44,12 +43,10 @@ $otherServer = new ServerSchema(
 );
 $spec = new Spec($router, $document, $demoServer, $otherServer);
 $html = new Html($spec);
-$file = fileForPath(__DIR__ . '/output/schwager.html');
-$file->createIfNotExists();
-$file->put($html->__toString());
-$result = $file->path()->__toString();
+$file = __DIR__ . '/output/schwager.html';
+file_put_contents($file, $html->__toString());
 echo <<<PLAIN
-[OK] {$result}
+[OK] {$file}
 
 PLAIN;
-passthru("open {$result}");
+passthru("open {$file}");

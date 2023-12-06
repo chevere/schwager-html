@@ -333,7 +333,7 @@ parameters:
                                 regex: '^.*$'
     status:
         type: string
-        regex: ^available|pending|sold$
+        regex: \b(available|pending|sold)\b
 </code></pre></dd>
 
                     
@@ -432,7 +432,7 @@ parameters:
                                 regex: '^.*$'
     status:
         type: string
-        regex: ^available|pending|sold$
+        regex: \b(available|pending|sold)\b
 </code></pre></dd>
 
                     
@@ -522,7 +522,7 @@ parameters:
                     <dt class="col-sm-2" title="Query string">Query string</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">status:
     type: string
-    regex: ^available|pending|sold$
+    regex: \b(available|pending|sold)\b
 </code></pre></dd>
 
                     
@@ -606,7 +606,7 @@ parameters:
                                                 regex: '^.*$'
                     status:
                         type: string
-                        regex: ^available|pending|sold$
+                        regex: \b(available|pending|sold)\b
 </code></pre></dd>
 
 </dl>
@@ -743,7 +743,7 @@ parameters:
                                                 regex: '^.*$'
                     status:
                         type: string
-                        regex: ^available|pending|sold$
+                        regex: \b(available|pending|sold)\b
 </code></pre></dd>
 
 </dl>
@@ -883,7 +883,7 @@ parameters:
                     <dt class="col-sm-2" title="Query string">Query string</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">status:
     type: string
-    regex: ^available|pending|sold$
+    regex: \b(available|pending|sold)\b
 </code></pre></dd>
 
                     
@@ -957,7 +957,7 @@ parameters:
                                 regex: '^.*$'
     status:
         type: string
-        regex: ^available|pending|sold$
+        regex: \b(available|pending|sold)\b
 </code></pre></dd>
 
 </dl>
@@ -1015,7 +1015,7 @@ parameters:
     status:
         required: false
         type: string
-        regex: ^available|pending|sold$
+        regex: \b(available|pending|sold)\b
 </code></pre></dd>
 
                     
@@ -1248,7 +1248,7 @@ parameters:
         regex: '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])\s{1}\d{2,3}:[0-5][0-9]:[0-5][0-9]$'
     status:
         type: string
-        regex: ^placed|approved|delivered$
+        regex: \b(placed|approved|delivered)\b
     complete:
         type: bool
 </code></pre></dd>
@@ -1290,7 +1290,7 @@ parameters:
         regex: '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])\s{1}\d{2,3}:[0-5][0-9]:[0-5][0-9]$'
     status:
         type: string
-        regex: ^placed|approved|delivered$
+        regex: \b(placed|approved|delivered)\b
     complete:
         type: bool
 </code></pre></dd>
@@ -1432,7 +1432,7 @@ parameters:
         regex: '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])\s{1}\d{2,3}:[0-5][0-9]:[0-5][0-9]$'
     status:
         type: string
-        regex: ^placed|approved|delivered$
+        regex: \b(placed|approved|delivered)\b
     complete:
         type: bool
 </code></pre></dd>

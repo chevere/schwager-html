@@ -14,10 +14,9 @@ declare(strict_types=1);
 namespace Chevere\SchwagerHTML;
 
 use Chevere\Schwager\Spec;
-use Chevere\Throwable\Exceptions\LogicException;
+use LogicException;
 use Stringable;
 use Symfony\Component\Yaml\Yaml;
-use function Chevere\Filesystem\fileForPath;
 use function Chevere\Standard\arrayFilterBoth;
 
 final class Html implements Stringable
@@ -372,8 +371,9 @@ final class Html implements Stringable
             $files
         );
         foreach ($files[0] as $pos => $match) {
-            $fileMatch = fileForPath(self::TEMPLATE_DIR . $files[2][$pos]);
-            $replace = '<style media="all">' . $fileMatch->getContents() . '</style>';
+            $file = self::TEMPLATE_DIR . $files[2][$pos];
+            $contents = file_get_contents($file);
+            $replace = '<style media="all">' . $contents . '</style>';
             $this->replace($match, $replace);
         }
     }
@@ -382,13 +382,14 @@ final class Html implements Stringable
     {
         preg_match_all("#<script .*(src=\"(.*)\")><\/script>#", $this->html, $files);
         foreach ($files[0] as $pos => $match) {
-            $fileMatch = fileForPath(self::TEMPLATE_DIR . $files[2][$pos]);
+            $file = self::TEMPLATE_DIR . $files[2][$pos];
+            $contents = file_get_contents($file);
             /** @var string $replace */
             $replace = str_replace(' ' . $files[1][$pos], '', $match);
             $replace = str_replace(
                 '></script>',
                 '>'
-                    . $fileMatch->getContents()
+                    . $contents
                     . '</script>',
                 $replace
             );
