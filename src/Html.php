@@ -219,7 +219,7 @@ final class Html implements Stringable
         ];
         $query = $request['query'] ?? '';
         if ($query !== '') {
-            $query = Yaml::dump($query, 20);
+            $query = Yaml::dump($query, 20, 2);
         }
         if ($query !== '') {
             $replace[2] .= $this->description(
@@ -231,7 +231,7 @@ final class Html implements Stringable
         }
         $body = $request['body'] ?? '';
         if ($body !== '') {
-            $body = Yaml::dump($body, 20);
+            $body = Yaml::dump($body, 20, 2);
             $replace[2] .= $this->description(
                 'Body',
                 <<<HTML
@@ -276,7 +276,7 @@ final class Html implements Stringable
             foreach ($el as $response) {
                 $body = $response['body'] ?? '';
                 if ($body !== '') {
-                    $body = Yaml::dump($body, 20);
+                    $body = Yaml::dump($body, 20, 2);
                 }
                 $headers = $this->headers($response['headers'] ?? []);
                 $replace = [

@@ -287,53 +287,53 @@ regex: '^.*$'
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
-    id:
+  id:
+    type: int
+  category:
+    type: 'array#map'
+    parameters:
+      id:
         type: int
-    category:
-        type: 'array#map'
-        parameters:
-            id:
-                type: int
-            name:
-                type: string
-                regex: '^.*$'
-    name:
+      name:
         type: string
         regex: '^.*$'
-    photoUrls:
-        type: union
+  name:
+    type: string
+    regex: '^.*$'
+  photoUrls:
+    type: union
+    parameters:
+      -
+        type: 'array#map'
+      -
+        type: generic
         parameters:
-            -
-                type: 'array#map'
-            -
-                type: generic
-                parameters:
-                    K:
-                        type: int
-                    V:
-                        type: string
-                        regex: '^.*$'
-    tags:
-        type: union
+          K:
+            type: int
+          V:
+            type: string
+            regex: '^.*$'
+  tags:
+    type: union
+    parameters:
+      -
+        type: 'array#map'
+      -
+        type: generic
         parameters:
-            -
-                type: 'array#map'
-            -
-                type: generic
-                parameters:
-                    K:
-                        type: int
-                    V:
-                        type: 'array#map'
-                        parameters:
-                            id:
-                                type: int
-                            name:
-                                type: string
-                                regex: '^.*$'
-    status:
-        type: string
-        regex: \b(available|pending|sold)\b
+          K:
+            type: int
+          V:
+            type: 'array#map'
+            parameters:
+              id:
+                type: int
+              name:
+                type: string
+                regex: '^.*$'
+  status:
+    type: string
+    regex: \b(available|pending|sold)\b
 </code></pre></dd>
 
                     
@@ -386,53 +386,53 @@ parameters:
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
-    id:
+  id:
+    type: int
+  category:
+    type: 'array#map'
+    parameters:
+      id:
         type: int
-    category:
-        type: 'array#map'
-        parameters:
-            id:
-                type: int
-            name:
-                type: string
-                regex: '^.*$'
-    name:
+      name:
         type: string
         regex: '^.*$'
-    photoUrls:
-        type: union
+  name:
+    type: string
+    regex: '^.*$'
+  photoUrls:
+    type: union
+    parameters:
+      -
+        type: 'array#map'
+      -
+        type: generic
         parameters:
-            -
-                type: 'array#map'
-            -
-                type: generic
-                parameters:
-                    K:
-                        type: int
-                    V:
-                        type: string
-                        regex: '^.*$'
-    tags:
-        type: union
+          K:
+            type: int
+          V:
+            type: string
+            regex: '^.*$'
+  tags:
+    type: union
+    parameters:
+      -
+        type: 'array#map'
+      -
+        type: generic
         parameters:
-            -
-                type: 'array#map'
-            -
-                type: generic
-                parameters:
-                    K:
-                        type: int
-                    V:
-                        type: 'array#map'
-                        parameters:
-                            id:
-                                type: int
-                            name:
-                                type: string
-                                regex: '^.*$'
-    status:
-        type: string
-        regex: \b(available|pending|sold)\b
+          K:
+            type: int
+          V:
+            type: 'array#map'
+            parameters:
+              id:
+                type: int
+              name:
+                type: string
+                regex: '^.*$'
+  status:
+    type: string
+    regex: \b(available|pending|sold)\b
 </code></pre></dd>
 
                     
@@ -521,8 +521,8 @@ parameters:
                 <dl class="row mb-0">
                     <dt class="col-sm-2" title="Query string">Query string</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">status:
-    type: string
-    regex: \b(available|pending|sold)\b
+  type: string
+  regex: \b(available|pending|sold)\b
 </code></pre></dd>
 
                     
@@ -550,63 +550,63 @@ parameters:
     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">type: union
 parameters:
-    -
+  -
+    type: 'array#map'
+  -
+    type: generic
+    parameters:
+      K:
+        type: int
+      V:
         type: 'array#map'
-    -
-        type: generic
         parameters:
-            K:
+          id:
+            type: int
+          category:
+            type: 'array#map'
+            parameters:
+              id:
                 type: int
-            V:
+              name:
+                type: string
+                regex: '^.*$'
+          name:
+            type: string
+            regex: '^.*$'
+          photoUrls:
+            type: union
+            parameters:
+              -
                 type: 'array#map'
+              -
+                type: generic
                 parameters:
-                    id:
+                  K:
+                    type: int
+                  V:
+                    type: string
+                    regex: '^.*$'
+          tags:
+            type: union
+            parameters:
+              -
+                type: 'array#map'
+              -
+                type: generic
+                parameters:
+                  K:
+                    type: int
+                  V:
+                    type: 'array#map'
+                    parameters:
+                      id:
                         type: int
-                    category:
-                        type: 'array#map'
-                        parameters:
-                            id:
-                                type: int
-                            name:
-                                type: string
-                                regex: '^.*$'
-                    name:
+                      name:
                         type: string
                         regex: '^.*$'
-                    photoUrls:
-                        type: union
-                        parameters:
-                            -
-                                type: 'array#map'
-                            -
-                                type: generic
-                                parameters:
-                                    K:
-                                        type: int
-                                    V:
-                                        type: string
-                                        regex: '^.*$'
-                    tags:
-                        type: union
-                        parameters:
-                            -
-                                type: 'array#map'
-                            -
-                                type: generic
-                                parameters:
-                                    K:
-                                        type: int
-                                    V:
-                                        type: 'array#map'
-                                        parameters:
-                                            id:
-                                                type: int
-                                            name:
-                                                type: string
-                                                regex: '^.*$'
-                    status:
-                        type: string
-                        regex: \b(available|pending|sold)\b
+          status:
+            type: string
+            regex: \b(available|pending|sold)\b
 </code></pre></dd>
 
 </dl>
@@ -657,9 +657,9 @@ parameters:
                 <dl class="row mb-0">
                     <dt class="col-sm-2" title="Query string">Query string</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">tags:
-    type: string
-    description: 'Tags to filter by'
-    regex: '^.*$'
+  type: string
+  description: 'Tags to filter by'
+  regex: '^.*$'
 </code></pre></dd>
 
                     
@@ -687,63 +687,63 @@ parameters:
     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">type: union
 parameters:
-    -
+  -
+    type: 'array#map'
+  -
+    type: generic
+    parameters:
+      K:
+        type: int
+      V:
         type: 'array#map'
-    -
-        type: generic
         parameters:
-            K:
+          id:
+            type: int
+          category:
+            type: 'array#map'
+            parameters:
+              id:
                 type: int
-            V:
+              name:
+                type: string
+                regex: '^.*$'
+          name:
+            type: string
+            regex: '^.*$'
+          photoUrls:
+            type: union
+            parameters:
+              -
                 type: 'array#map'
+              -
+                type: generic
                 parameters:
-                    id:
+                  K:
+                    type: int
+                  V:
+                    type: string
+                    regex: '^.*$'
+          tags:
+            type: union
+            parameters:
+              -
+                type: 'array#map'
+              -
+                type: generic
+                parameters:
+                  K:
+                    type: int
+                  V:
+                    type: 'array#map'
+                    parameters:
+                      id:
                         type: int
-                    category:
-                        type: 'array#map'
-                        parameters:
-                            id:
-                                type: int
-                            name:
-                                type: string
-                                regex: '^.*$'
-                    name:
+                      name:
                         type: string
                         regex: '^.*$'
-                    photoUrls:
-                        type: union
-                        parameters:
-                            -
-                                type: 'array#map'
-                            -
-                                type: generic
-                                parameters:
-                                    K:
-                                        type: int
-                                    V:
-                                        type: string
-                                        regex: '^.*$'
-                    tags:
-                        type: union
-                        parameters:
-                            -
-                                type: 'array#map'
-                            -
-                                type: generic
-                                parameters:
-                                    K:
-                                        type: int
-                                    V:
-                                        type: 'array#map'
-                                        parameters:
-                                            id:
-                                                type: int
-                                            name:
-                                                type: string
-                                                regex: '^.*$'
-                    status:
-                        type: string
-                        regex: \b(available|pending|sold)\b
+          status:
+            type: string
+            regex: \b(available|pending|sold)\b
 </code></pre></dd>
 
 </dl>
@@ -816,9 +816,9 @@ parameters:
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
-    api_key:
-        type: string
-        regex: '^.*$'
+  api_key:
+    type: string
+    regex: '^.*$'
 </code></pre></dd>
 
                     
@@ -882,8 +882,8 @@ parameters:
                 <dl class="row mb-0">
                     <dt class="col-sm-2" title="Query string">Query string</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">status:
-    type: string
-    regex: \b(available|pending|sold)\b
+  type: string
+  regex: \b(available|pending|sold)\b
 </code></pre></dd>
 
                     
@@ -911,53 +911,53 @@ parameters:
     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
-    id:
+  id:
+    type: int
+  category:
+    type: 'array#map'
+    parameters:
+      id:
         type: int
-    category:
-        type: 'array#map'
-        parameters:
-            id:
-                type: int
-            name:
-                type: string
-                regex: '^.*$'
-    name:
+      name:
         type: string
         regex: '^.*$'
-    photoUrls:
-        type: union
+  name:
+    type: string
+    regex: '^.*$'
+  photoUrls:
+    type: union
+    parameters:
+      -
+        type: 'array#map'
+      -
+        type: generic
         parameters:
-            -
-                type: 'array#map'
-            -
-                type: generic
-                parameters:
-                    K:
-                        type: int
-                    V:
-                        type: string
-                        regex: '^.*$'
-    tags:
-        type: union
+          K:
+            type: int
+          V:
+            type: string
+            regex: '^.*$'
+  tags:
+    type: union
+    parameters:
+      -
+        type: 'array#map'
+      -
+        type: generic
         parameters:
-            -
-                type: 'array#map'
-            -
-                type: generic
-                parameters:
-                    K:
-                        type: int
-                    V:
-                        type: 'array#map'
-                        parameters:
-                            id:
-                                type: int
-                            name:
-                                type: string
-                                regex: '^.*$'
-    status:
-        type: string
-        regex: \b(available|pending|sold)\b
+          K:
+            type: int
+          V:
+            type: 'array#map'
+            parameters:
+              id:
+                type: int
+              name:
+                type: string
+                regex: '^.*$'
+  status:
+    type: string
+    regex: \b(available|pending|sold)\b
 </code></pre></dd>
 
 </dl>
@@ -1008,14 +1008,14 @@ parameters:
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
-    name:
-        required: false
-        type: string
-        regex: '^.*$'
-    status:
-        required: false
-        type: string
-        regex: \b(available|pending|sold)\b
+  name:
+    required: false
+    type: string
+    regex: '^.*$'
+  status:
+    required: false
+    type: string
+    regex: \b(available|pending|sold)\b
 </code></pre></dd>
 
                     
@@ -1102,13 +1102,13 @@ parameters:
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
-    additionalMetadata:
-        type: string
-        description: 'Additional data to pass to server'
-        regex: '^.*$'
-    file:
-        type: string
-        regex: '^.*$'
+  additionalMetadata:
+    type: string
+    description: 'Additional data to pass to server'
+    regex: '^.*$'
+  file:
+    type: string
+    regex: '^.*$'
 </code></pre></dd>
 
                     
@@ -1136,14 +1136,14 @@ parameters:
     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
-    code:
-        type: int
-    type:
-        type: string
-        regex: '^.*$'
-    message:
-        type: string
-        regex: '^.*$'
+  code:
+    type: int
+  type:
+    type: string
+    regex: '^.*$'
+  message:
+    type: string
+    regex: '^.*$'
 </code></pre></dd>
 
 </dl>
@@ -1192,11 +1192,11 @@ parameters:
     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">type: generic
 parameters:
-    K:
-        type: string
-        regex: '^.*$'
-    V:
-        type: int
+  K:
+    type: string
+    regex: '^.*$'
+  V:
+    type: int
 </code></pre></dd>
 
 </dl>
@@ -1236,21 +1236,21 @@ parameters:
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
-    id:
-        type: int
-    petId:
-        type: int
-    quantity:
-        type: int
-    shipDate:
-        type: string
-        description: 'YYYY-MM-DD hh:mm:ss'
-        regex: '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])\s{1}\d{2,3}:[0-5][0-9]:[0-5][0-9]$'
-    status:
-        type: string
-        regex: \b(placed|approved|delivered)\b
-    complete:
-        type: bool
+  id:
+    type: int
+  petId:
+    type: int
+  quantity:
+    type: int
+  shipDate:
+    type: string
+    description: 'YYYY-MM-DD hh:mm:ss'
+    regex: '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])\s{1}\d{2,3}:[0-5][0-9]:[0-5][0-9]$'
+  status:
+    type: string
+    regex: \b(placed|approved|delivered)\b
+  complete:
+    type: bool
 </code></pre></dd>
 
                     
@@ -1278,21 +1278,21 @@ parameters:
     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
-    id:
-        type: int
-    petId:
-        type: int
-    quantity:
-        type: int
-    shipDate:
-        type: string
-        description: 'YYYY-MM-DD hh:mm:ss'
-        regex: '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])\s{1}\d{2,3}:[0-5][0-9]:[0-5][0-9]$'
-    status:
-        type: string
-        regex: \b(placed|approved|delivered)\b
-    complete:
-        type: bool
+  id:
+    type: int
+  petId:
+    type: int
+  quantity:
+    type: int
+  shipDate:
+    type: string
+    description: 'YYYY-MM-DD hh:mm:ss'
+    regex: '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])\s{1}\d{2,3}:[0-5][0-9]:[0-5][0-9]$'
+  status:
+    type: string
+    regex: \b(placed|approved|delivered)\b
+  complete:
+    type: bool
 </code></pre></dd>
 
 </dl>
@@ -1420,21 +1420,21 @@ parameters:
     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
-    id:
-        type: int
-    petId:
-        type: int
-    quantity:
-        type: int
-    shipDate:
-        type: string
-        description: 'YYYY-MM-DD hh:mm:ss'
-        regex: '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])\s{1}\d{2,3}:[0-5][0-9]:[0-5][0-9]$'
-    status:
-        type: string
-        regex: \b(placed|approved|delivered)\b
-    complete:
-        type: bool
+  id:
+    type: int
+  petId:
+    type: int
+  quantity:
+    type: int
+  shipDate:
+    type: string
+    description: 'YYYY-MM-DD hh:mm:ss'
+    regex: '^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])\s{1}\d{2,3}:[0-5][0-9]:[0-5][0-9]$'
+  status:
+    type: string
+    regex: \b(placed|approved|delivered)\b
+  complete:
+    type: bool
 </code></pre></dd>
 
 </dl>
@@ -1498,28 +1498,28 @@ parameters:
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
-    id:
-        type: int
-    username:
-        type: string
-        regex: '^.*$'
-    firstName:
-        type: string
-        regex: '^.*$'
-    lastName:
-        type: string
-        regex: '^.*$'
-    email:
-        type: string
-        regex: '^.*$'
-    password:
-        type: string
-        regex: '^.*$'
-    phone:
-        type: string
-        regex: '^.*$'
-    userStatus:
-        type: int
+  id:
+    type: int
+  username:
+    type: string
+    regex: '^.*$'
+  firstName:
+    type: string
+    regex: '^.*$'
+  lastName:
+    type: string
+    regex: '^.*$'
+  email:
+    type: string
+    regex: '^.*$'
+  password:
+    type: string
+    regex: '^.*$'
+  phone:
+    type: string
+    regex: '^.*$'
+  userStatus:
+    type: int
 </code></pre></dd>
 
                     
@@ -1583,36 +1583,36 @@ parameters:
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
-    input:
-        type: generic
+  input:
+    type: generic
+    parameters:
+      K:
+        type: int
+      V:
+        type: 'array#map'
         parameters:
-            K:
-                type: int
-            V:
-                type: 'array#map'
-                parameters:
-                    id:
-                        type: int
-                    username:
-                        type: string
-                        regex: '^.*$'
-                    firstName:
-                        type: string
-                        regex: '^.*$'
-                    lastName:
-                        type: string
-                        regex: '^.*$'
-                    email:
-                        type: string
-                        regex: '^.*$'
-                    password:
-                        type: string
-                        regex: '^.*$'
-                    phone:
-                        type: string
-                        regex: '^.*$'
-                    userStatus:
-                        type: int
+          id:
+            type: int
+          username:
+            type: string
+            regex: '^.*$'
+          firstName:
+            type: string
+            regex: '^.*$'
+          lastName:
+            type: string
+            regex: '^.*$'
+          email:
+            type: string
+            regex: '^.*$'
+          password:
+            type: string
+            regex: '^.*$'
+          phone:
+            type: string
+            regex: '^.*$'
+          userStatus:
+            type: int
 </code></pre></dd>
 
                     
@@ -1678,36 +1678,36 @@ parameters:
                     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
-    input:
-        type: generic
+  input:
+    type: generic
+    parameters:
+      K:
+        type: int
+      V:
+        type: 'array#map'
         parameters:
-            K:
-                type: int
-            V:
-                type: 'array#map'
-                parameters:
-                    id:
-                        type: int
-                    username:
-                        type: string
-                        regex: '^.*$'
-                    firstName:
-                        type: string
-                        regex: '^.*$'
-                    lastName:
-                        type: string
-                        regex: '^.*$'
-                    email:
-                        type: string
-                        regex: '^.*$'
-                    password:
-                        type: string
-                        regex: '^.*$'
-                    phone:
-                        type: string
-                        regex: '^.*$'
-                    userStatus:
-                        type: int
+          id:
+            type: int
+          username:
+            type: string
+            regex: '^.*$'
+          firstName:
+            type: string
+            regex: '^.*$'
+          lastName:
+            type: string
+            regex: '^.*$'
+          email:
+            type: string
+            regex: '^.*$'
+          password:
+            type: string
+            regex: '^.*$'
+          phone:
+            type: string
+            regex: '^.*$'
+          userStatus:
+            type: int
 </code></pre></dd>
 
                     
@@ -1849,28 +1849,28 @@ parameters:
     <dt class="col-sm-2" title="Body">Body</dt>
 <dd class="col-sm-10"><pre><code class="language-yaml">type: 'array#map'
 parameters:
-    id:
-        type: int
-    username:
-        type: string
-        regex: '^.*$'
-    firstName:
-        type: string
-        regex: '^.*$'
-    lastName:
-        type: string
-        regex: '^.*$'
-    email:
-        type: string
-        regex: '^.*$'
-    password:
-        type: string
-        regex: '^.*$'
-    phone:
-        type: string
-        regex: '^.*$'
-    userStatus:
-        type: int
+  id:
+    type: int
+  username:
+    type: string
+    regex: '^.*$'
+  firstName:
+    type: string
+    regex: '^.*$'
+  lastName:
+    type: string
+    regex: '^.*$'
+  email:
+    type: string
+    regex: '^.*$'
+  password:
+    type: string
+    regex: '^.*$'
+  phone:
+    type: string
+    regex: '^.*$'
+  userStatus:
+    type: int
 </code></pre></dd>
 
 </dl>
