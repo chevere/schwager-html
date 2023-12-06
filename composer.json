@@ -19,7 +19,7 @@
         "chevere/router": "^0.6.x-dev",
         "chevere/schwager": "^0.2.x-dev",
         "chevere/standard": "^1.0.x-dev",
-        "symfony/yaml": "^7.0"
+        "symfony/yaml": "^6|^7"
     },
     "require-dev": {
         "chevere/var-dump": "^0.10.x-dev",
