@@ -31,7 +31,7 @@ use function Chevere\Parameter\string;
 )]
 final class UserGetController extends Controller
 {
-    public static function acceptResponse(): ParameterInterface
+    public static function return(): ParameterInterface
     {
         return arrayp(
             id: int(),

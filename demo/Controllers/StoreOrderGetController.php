@@ -33,7 +33,7 @@ use function Chevere\Parameter\int;
 )]
 final class StoreOrderGetController extends Controller
 {
-    public static function acceptResponse(): ParameterInterface
+    public static function return(): ParameterInterface
     {
         return arrayp(
             id: int(),

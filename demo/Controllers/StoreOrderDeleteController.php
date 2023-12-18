@@ -29,7 +29,7 @@ use function Chevere\Parameter\null;
 )]
 final class StoreOrderDeleteController extends Controller
 {
-    public static function acceptResponse(): ParameterInterface
+    public static function return(): ParameterInterface
     {
         return null();
     }

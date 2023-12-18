@@ -43,7 +43,7 @@ final class PetGetController extends Controller
         );
     }
 
-    public static function acceptResponse(): ParameterInterface
+    public static function return(): ParameterInterface
     {
         return arrayp(
             id: int(),

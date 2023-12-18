@@ -30,7 +30,7 @@ use function Chevere\Parameter\string;
 )]
 final class StoreInventoryGetController extends Controller
 {
-    public static function acceptResponse(): ParameterInterface
+    public static function return(): ParameterInterface
     {
         return generic(
             K: string(),

@@ -43,7 +43,7 @@ final class PetPostController extends Controller
             ->withOptionalMinimum(1);
     }
 
-    public static function acceptResponse(): ParameterInterface
+    public static function return(): ParameterInterface
     {
         return null();
     }

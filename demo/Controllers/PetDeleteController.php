@@ -39,7 +39,7 @@ final class PetDeleteController extends Controller
         );
     }
 
-    public static function acceptResponse(): ParameterInterface
+    public static function return(): ParameterInterface
     {
         return null();
     }
