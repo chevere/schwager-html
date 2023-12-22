@@ -45,7 +45,7 @@ final class StoreOrderGetController extends Controller
         );
     }
 
-    public function run(
+    public function main(
         #[StringAttr(description: 'ID of pet that needs to be fetched')]
         string $orderId
     ): array {

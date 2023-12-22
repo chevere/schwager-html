@@ -45,7 +45,7 @@ final class UserGetController extends Controller
         );
     }
 
-    public function run(
+    public function main(
         #[StringAttr(description: 'The name that needs to be fetched')]
         string $username
     ): array {

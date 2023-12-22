@@ -57,7 +57,7 @@ final class StoreOrderPostController extends Controller
         );
     }
 
-    public function run(): array
+    public function main(): array
     {
         return [];
     }

@@ -35,7 +35,7 @@ final class UserLoginGetController extends Controller
         return string();
     }
 
-    public function run(): string
+    public function main(): string
     {
         return '';
     }

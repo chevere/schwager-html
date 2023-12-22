@@ -66,7 +66,7 @@ final class PetsPostController extends Controller
         return null();
     }
 
-    public function run(): void
+    public function main(): void
     {
     }
 }

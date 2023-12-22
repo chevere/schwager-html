@@ -34,7 +34,7 @@ final class StoreOrderDeleteController extends Controller
         return null();
     }
 
-    public function run(
+    public function main(
         #[StringAttr(description: 'ID of the order that needs to be deleted')]
         string $orderId
     ): void {

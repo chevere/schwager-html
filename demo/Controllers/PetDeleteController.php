@@ -44,7 +44,7 @@ final class PetDeleteController extends Controller
         return null();
     }
 
-    public function run(
+    public function main(
         #[StringAttr(description: 'Pet id to delete')]
         string $petId
     ): void {

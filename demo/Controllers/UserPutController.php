@@ -34,7 +34,7 @@ final class UserPutController extends Controller
         return null();
     }
 
-    public function run(
+    public function main(
         #[StringAttr(description: 'name that need to be updated')]
         string $username
     ): void {

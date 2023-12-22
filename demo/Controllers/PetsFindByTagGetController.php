@@ -73,7 +73,7 @@ final class PetsFindByTagGetController extends Controller
         );
     }
 
-    public function run(): array
+    public function main(): array
     {
         return [];
     }

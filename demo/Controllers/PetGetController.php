@@ -69,7 +69,7 @@ final class PetGetController extends Controller
         );
     }
 
-    public function run(
+    public function main(
         #[StringAttr(description: 'ID of pet to return')]
         string $petId
     ): array {

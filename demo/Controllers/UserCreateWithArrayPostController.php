@@ -56,7 +56,7 @@ final class UserCreateWithArrayPostController extends Controller
         return null();
     }
 
-    public function run(): void
+    public function main(): void
     {
     }
 }

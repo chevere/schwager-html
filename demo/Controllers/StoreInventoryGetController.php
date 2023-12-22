@@ -38,7 +38,7 @@ final class StoreInventoryGetController extends Controller
         );
     }
 
-    public function run(
+    public function main(
     ): array {
         return [];
     }

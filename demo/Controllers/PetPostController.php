@@ -48,7 +48,7 @@ final class PetPostController extends Controller
         return null();
     }
 
-    public function run(
+    public function main(
         #[StringAttr(description: 'ID of pet that needs to be updated')]
         string $petId
     ): void {

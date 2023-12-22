@@ -34,7 +34,7 @@ final class UserDeleteController extends Controller
         return null();
     }
 
-    public function run(
+    public function main(
         #[StringAttr(description: 'The name that needs to be deleted')]
         string $username
     ): void {

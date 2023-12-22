@@ -49,7 +49,7 @@ final class UploadImagePostController extends Controller
         );
     }
 
-    public function run(
+    public function main(
         #[StringAttr(description: 'ID of pet to update')]
         string $petId
     ): array {
