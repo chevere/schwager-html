@@ -24,8 +24,8 @@ use Chevere\Parameter\Interfaces\ParameterInterface;
 use function Chevere\Parameter\arrayp;
 use function Chevere\Parameter\arrayString;
 use function Chevere\Parameter\enum;
-use function Chevere\Parameter\generic;
 use function Chevere\Parameter\int;
+use function Chevere\Parameter\iterable;
 use function Chevere\Parameter\string;
 use function Chevere\Parameter\union;
 
@@ -54,11 +54,11 @@ final class PetGetController extends Controller
             name: string(),
             photoUrls: union(
                 arrayp(),
-                generic(string())
+                iterable(string())
             ),
             tags: union(
                 arrayp(),
-                generic(
+                iterable(
                     arrayp(
                         id: int(),
                         name: string(),

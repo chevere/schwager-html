@@ -26,8 +26,8 @@ use function Chevere\Parameter\arrayp;
 use function Chevere\Parameter\arrayString;
 use function Chevere\Parameter\date;
 use function Chevere\Parameter\float;
-use function Chevere\Parameter\generic;
 use function Chevere\Parameter\int;
+use function Chevere\Parameter\iterable;
 use function Chevere\Parameter\null;
 use function Chevere\Parameter\string;
 use function Chevere\Parameter\time;
@@ -62,7 +62,7 @@ class GetController extends Controller
             rate: float(min: 16.5),
             hours: int(min: 1, max: 8),
             union: union(null(), string()),
-            generic: generic(
+            iterable: iterable(
                 string(),
             )
         );

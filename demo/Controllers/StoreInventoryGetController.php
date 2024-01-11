@@ -19,8 +19,8 @@ use Chevere\Http\Controller;
 use Chevere\Http\Header;
 use Chevere\Http\Status;
 use Chevere\Parameter\Interfaces\ParameterInterface;
-use function Chevere\Parameter\generic;
 use function Chevere\Parameter\int;
+use function Chevere\Parameter\iterable;
 use function Chevere\Parameter\string;
 
 #[Description('Returns pet inventories by status')]
@@ -32,7 +32,7 @@ final class StoreInventoryGetController extends Controller
 {
     public static function return(): ParameterInterface
     {
-        return generic(
+        return iterable(
             K: string(),
             V: int(),
         );

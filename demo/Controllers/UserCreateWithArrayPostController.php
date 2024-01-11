@@ -21,8 +21,8 @@ use Chevere\Http\Status;
 use Chevere\Parameter\Interfaces\ArrayParameterInterface;
 use Chevere\Parameter\Interfaces\ParameterInterface;
 use function Chevere\Parameter\arrayp;
-use function Chevere\Parameter\generic;
 use function Chevere\Parameter\int;
+use function Chevere\Parameter\iterable;
 use function Chevere\Parameter\null;
 use function Chevere\Parameter\string;
 
@@ -36,7 +36,7 @@ final class UserCreateWithArrayPostController extends Controller
     public static function acceptBody(): ArrayParameterInterface
     {
         return arrayp(
-            input: generic(
+            input: iterable(
                 arrayp(
                     id: int(),
                     username: string(),
