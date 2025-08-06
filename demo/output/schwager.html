@@ -173,7 +173,24 @@ pre code {
             <h4 class="h4 mb-0"><span class="badge http-method method-GET fs-5 me-2">GET</span>Logs user into the system</h4>
         </div>
     </div>
-    
+    <dl class="GET-667ad3025b28b6728e22cd4db0e247ce mt-2 collapse">
+    <dt>Request</dt>
+    <dd>
+        <div class="list-group mb-2 mt-2">
+            <div class="list-group-item bg-body-tertiary py-3">
+                <dl class="row mb-0">
+                    <dt class="col-sm-2" title="Body">Body</dt>
+<dd class="col-sm-10"><pre><code class="language-yaml">type: mixed
+</code></pre></dd>
+
+                    
+                    
+                </dl>
+            </div>
+        </div>
+    </dd>
+</dl>
+
     <dl class="GET-667ad3025b28b6728e22cd4db0e247ce mt-2 collapse">
     <dt>Response</dt>
     <dd>
@@ -233,7 +250,24 @@ regex: '^.*$'
             <h4 class="h4 mb-0"><span class="badge http-method method-GET fs-5 me-2">GET</span>Logs out current logged in user session</h4>
         </div>
     </div>
-    
+    <dl class="GET-71c9f52556a337ac062c51190bc27bdc mt-2 collapse">
+    <dt>Request</dt>
+    <dd>
+        <div class="list-group mb-2 mt-2">
+            <div class="list-group-item bg-body-tertiary py-3">
+                <dl class="row mb-0">
+                    <dt class="col-sm-2" title="Body">Body</dt>
+<dd class="col-sm-10"><pre><code class="language-yaml">type: mixed
+</code></pre></dd>
+
+                    
+                    
+                </dl>
+            </div>
+        </div>
+    </dd>
+</dl>
+
     <dl class="GET-71c9f52556a337ac062c51190bc27bdc mt-2 collapse">
     <dt>Response</dt>
     <dd>
@@ -524,6 +558,9 @@ parameters:
   type: string
   regex: \bavailable|pending|sold\b
 </code></pre></dd>
+<dt class="col-sm-2" title="Body">Body</dt>
+<dd class="col-sm-10"><pre><code class="language-yaml">type: mixed
+</code></pre></dd>
 
                     
                     
@@ -661,6 +698,9 @@ parameters:
   description: 'Tags to filter by'
   regex: '^.*$'
 </code></pre></dd>
+<dt class="col-sm-2" title="Body">Body</dt>
+<dd class="col-sm-10"><pre><code class="language-yaml">type: mixed
+</code></pre></dd>
 
                     
                     
@@ -775,7 +815,7 @@ parameters:
     <dt>Name</dt>
     <dd>/pet/{petId}</dd>
     <dt>Regex</dt>
-    <dd class="font-monospace">^(?|/pet/(.*))$</dd>
+    <dd class="font-monospace">^(?|/pet/([^/]+))$</dd>
     <dt>Variables</dt>
 <dd>
     <ul class="list-group mb-2 mt-2">
@@ -787,7 +827,7 @@ parameters:
 <dd class="col-sm-10">string</dd>
 
         <dt class="col-sm-2" title="Regex">Regex</dt>
-<dd class="col-sm-10"><code>^.*$</code></dd>
+<dd class="col-sm-10"><code>^[^/]+$</code></dd>
 
         <dt class="col-sm-2" title="Description">Description</dt>
 <dd class="col-sm-10">ID of pet to return</dd>
@@ -884,6 +924,9 @@ parameters:
 <dd class="col-sm-10"><pre><code class="language-yaml">status:
   type: string
   regex: \bavailable|pending|sold\b
+</code></pre></dd>
+<dt class="col-sm-2" title="Body">Body</dt>
+<dd class="col-sm-10"><pre><code class="language-yaml">type: mixed
 </code></pre></dd>
 
                     
@@ -1061,7 +1104,7 @@ parameters:
     <dt>Name</dt>
     <dd>/pet/{petId}/uploadImage</dd>
     <dt>Regex</dt>
-    <dd class="font-monospace">^(?|/pet/(.*)/uploadImage)$</dd>
+    <dd class="font-monospace">^(?|/pet/([^/]+)/uploadImage)$</dd>
     <dt>Variables</dt>
 <dd>
     <ul class="list-group mb-2 mt-2">
@@ -1073,7 +1116,7 @@ parameters:
 <dd class="col-sm-10">string</dd>
 
         <dt class="col-sm-2" title="Regex">Regex</dt>
-<dd class="col-sm-10"><code>^.*$</code></dd>
+<dd class="col-sm-10"><code>^[^/]+$</code></dd>
 
         <dt class="col-sm-2" title="Description">Description</dt>
 <dd class="col-sm-10">ID of pet to update</dd>
@@ -1174,7 +1217,24 @@ parameters:
             <h4 class="h4 mb-0"><span class="badge http-method method-GET fs-5 me-2">GET</span>Returns pet inventories by status</h4>
         </div>
     </div>
-    
+    <dl class="GET-302472c97bf4679b7c0381f7d9c10fba mt-2 collapse">
+    <dt>Request</dt>
+    <dd>
+        <div class="list-group mb-2 mt-2">
+            <div class="list-group-item bg-body-tertiary py-3">
+                <dl class="row mb-0">
+                    <dt class="col-sm-2" title="Body">Body</dt>
+<dd class="col-sm-10"><pre><code class="language-yaml">type: mixed
+</code></pre></dd>
+
+                    
+                    
+                </dl>
+            </div>
+        </div>
+    </dd>
+</dl>
+
     <dl class="GET-302472c97bf4679b7c0381f7d9c10fba mt-2 collapse">
     <dt>Response</dt>
     <dd>
@@ -1324,7 +1384,7 @@ parameters:
     <dt>Name</dt>
     <dd>/store/order/{orderId}</dd>
     <dt>Regex</dt>
-    <dd class="font-monospace">^(?|/store/order/(.*))$</dd>
+    <dd class="font-monospace">^(?|/store/order/([^/]+))$</dd>
     <dt>Variables</dt>
 <dd>
     <ul class="list-group mb-2 mt-2">
@@ -1336,7 +1396,7 @@ parameters:
 <dd class="col-sm-10">string</dd>
 
         <dt class="col-sm-2" title="Regex">Regex</dt>
-<dd class="col-sm-10"><code>^.*$</code></dd>
+<dd class="col-sm-10"><code>^[^/]+$</code></dd>
 
         <dt class="col-sm-2" title="Description">Description</dt>
 <dd class="col-sm-10">ID of pet that needs to be fetched</dd>
@@ -1356,7 +1416,24 @@ parameters:
             <h4 class="h4 mb-0"><span class="badge http-method method-DELETE fs-5 me-2">DELETE</span>Delete purchase order by ID</h4>
         </div>
     </div>
-    
+    <dl class="DELETE-07193ea49515f369a8ea07e74b20dedd mt-2 collapse">
+    <dt>Request</dt>
+    <dd>
+        <div class="list-group mb-2 mt-2">
+            <div class="list-group-item bg-body-tertiary py-3">
+                <dl class="row mb-0">
+                    <dt class="col-sm-2" title="Body">Body</dt>
+<dd class="col-sm-10"><pre><code class="language-yaml">type: mixed
+</code></pre></dd>
+
+                    
+                    
+                </dl>
+            </div>
+        </div>
+    </dd>
+</dl>
+
     <dl class="DELETE-07193ea49515f369a8ea07e74b20dedd mt-2 collapse">
     <dt>Response</dt>
     <dd>
@@ -1402,7 +1479,24 @@ parameters:
             <h4 class="h4 mb-0"><span class="badge http-method method-GET fs-5 me-2">GET</span>Find purchase order by ID</h4>
         </div>
     </div>
-    
+    <dl class="GET-98c435b729dd1cdce9a65aef564d6494 mt-2 collapse">
+    <dt>Request</dt>
+    <dd>
+        <div class="list-group mb-2 mt-2">
+            <div class="list-group-item bg-body-tertiary py-3">
+                <dl class="row mb-0">
+                    <dt class="col-sm-2" title="Body">Body</dt>
+<dd class="col-sm-10"><pre><code class="language-yaml">type: mixed
+</code></pre></dd>
+
+                    
+                    
+                </dl>
+            </div>
+        </div>
+    </dd>
+</dl>
+
     <dl class="GET-98c435b729dd1cdce9a65aef564d6494 mt-2 collapse">
     <dt>Response</dt>
     <dd>
@@ -1753,7 +1847,7 @@ parameters:
     <dt>Name</dt>
     <dd>/user/{username}</dd>
     <dt>Regex</dt>
-    <dd class="font-monospace">^(?|/user/(.*))$</dd>
+    <dd class="font-monospace">^(?|/user/([^/]+))$</dd>
     <dt>Variables</dt>
 <dd>
     <ul class="list-group mb-2 mt-2">
@@ -1765,7 +1859,7 @@ parameters:
 <dd class="col-sm-10">string</dd>
 
         <dt class="col-sm-2" title="Regex">Regex</dt>
-<dd class="col-sm-10"><code>^.*$</code></dd>
+<dd class="col-sm-10"><code>^[^/]+$</code></dd>
 
         <dt class="col-sm-2" title="Description">Description</dt>
 <dd class="col-sm-10">The name that needs to be fetched</dd>
@@ -1785,7 +1879,24 @@ parameters:
             <h4 class="h4 mb-0"><span class="badge http-method method-DELETE fs-5 me-2">DELETE</span>Delete user</h4>
         </div>
     </div>
-    
+    <dl class="DELETE-cc229e09dc5b248bd40a85046229a6ac mt-2 collapse">
+    <dt>Request</dt>
+    <dd>
+        <div class="list-group mb-2 mt-2">
+            <div class="list-group-item bg-body-tertiary py-3">
+                <dl class="row mb-0">
+                    <dt class="col-sm-2" title="Body">Body</dt>
+<dd class="col-sm-10"><pre><code class="language-yaml">type: mixed
+</code></pre></dd>
+
+                    
+                    
+                </dl>
+            </div>
+        </div>
+    </dd>
+</dl>
+
     <dl class="DELETE-cc229e09dc5b248bd40a85046229a6ac mt-2 collapse">
     <dt>Response</dt>
     <dd>
@@ -1831,7 +1942,24 @@ parameters:
             <h4 class="h4 mb-0"><span class="badge http-method method-GET fs-5 me-2">GET</span>Get user by user name</h4>
         </div>
     </div>
-    
+    <dl class="GET-421915ae642a409329c7d3ca26456f45 mt-2 collapse">
+    <dt>Request</dt>
+    <dd>
+        <div class="list-group mb-2 mt-2">
+            <div class="list-group-item bg-body-tertiary py-3">
+                <dl class="row mb-0">
+                    <dt class="col-sm-2" title="Body">Body</dt>
+<dd class="col-sm-10"><pre><code class="language-yaml">type: mixed
+</code></pre></dd>
+
+                    
+                    
+                </dl>
+            </div>
+        </div>
+    </dd>
+</dl>
+
     <dl class="GET-421915ae642a409329c7d3ca26456f45 mt-2 collapse">
     <dt>Response</dt>
     <dd>
@@ -1912,7 +2040,24 @@ parameters:
             <h4 class="h4 mb-0"><span class="badge http-method method-PUT fs-5 me-2">PUT</span>Updated user</h4>
         </div>
     </div>
-    
+    <dl class="PUT-ae8356015e8de5fe8acfe6ed7f869539 mt-2 collapse">
+    <dt>Request</dt>
+    <dd>
+        <div class="list-group mb-2 mt-2">
+            <div class="list-group-item bg-body-tertiary py-3">
+                <dl class="row mb-0">
+                    <dt class="col-sm-2" title="Body">Body</dt>
+<dd class="col-sm-10"><pre><code class="language-yaml">type: mixed
+</code></pre></dd>
+
+                    
+                    
+                </dl>
+            </div>
+        </div>
+    </dd>
+</dl>
+
     <dl class="PUT-ae8356015e8de5fe8acfe6ed7f869539 mt-2 collapse">
     <dt>Response</dt>
     <dd>
