@@ -33,6 +33,12 @@ use function Chevere\Parameter\string;
 )]
 final class PetPostController extends Controller
 {
+    public function __invoke(
+        #[StringAttr(description: 'ID of pet that needs to be updated')]
+        string $petId
+    ): void {
+    }
+
     public static function acceptBody(): ArrayParameterInterface
     {
         return arrayp()
@@ -46,11 +52,5 @@ final class PetPostController extends Controller
     public static function return(): ParameterInterface
     {
         return null();
-    }
-
-    public function main(
-        #[StringAttr(description: 'ID of pet that needs to be updated')]
-        string $petId
-    ): void {
     }
 }

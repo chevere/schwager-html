@@ -30,6 +30,10 @@ use function Chevere\Parameter\string;
 )]
 final class UsersPostController extends Controller
 {
+    public function __invoke(): void
+    {
+    }
+
     public static function acceptBody(): ArrayParameterInterface
     {
         return arrayp(
@@ -47,9 +51,5 @@ final class UsersPostController extends Controller
     public static function return(): ParameterInterface
     {
         return null();
-    }
-
-    public function main(): void
-    {
     }
 }

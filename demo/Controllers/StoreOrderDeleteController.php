@@ -29,14 +29,14 @@ use function Chevere\Parameter\null;
 )]
 final class StoreOrderDeleteController extends Controller
 {
-    public static function return(): ParameterInterface
-    {
-        return null();
-    }
-
-    public function main(
+    public function __invoke(
         #[StringAttr(description: 'ID of the order that needs to be deleted')]
         string $orderId
     ): void {
+    }
+
+    public static function return(): ParameterInterface
+    {
+        return null();
     }
 }

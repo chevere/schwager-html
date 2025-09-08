@@ -32,6 +32,13 @@ use function Chevere\Parameter\string;
 )]
 final class UploadImagePostController extends Controller
 {
+    public function __invoke(
+        #[StringAttr(description: 'ID of pet to update')]
+        string $petId
+    ): array {
+        return [];
+    }
+
     public static function acceptBody(): ArrayParameterInterface
     {
         return arrayp(
@@ -47,12 +54,5 @@ final class UploadImagePostController extends Controller
             type: string(),
             message: string(),
         );
-    }
-
-    public function main(
-        #[StringAttr(description: 'ID of pet to update')]
-        string $petId
-    ): array {
-        return [];
     }
 }

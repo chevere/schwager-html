@@ -31,6 +31,13 @@ use function Chevere\Parameter\string;
 )]
 final class UserGetController extends Controller
 {
+    public function __invoke(
+        #[StringAttr(description: 'The name that needs to be fetched')]
+        string $username
+    ): array {
+        return [];
+    }
+
     public static function return(): ParameterInterface
     {
         return arrayp(
@@ -43,12 +50,5 @@ final class UserGetController extends Controller
             phone: string(),
             userStatus: int()
         );
-    }
-
-    public function main(
-        #[StringAttr(description: 'The name that needs to be fetched')]
-        string $username
-    ): array {
-        return [];
     }
 }

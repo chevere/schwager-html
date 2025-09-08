@@ -36,6 +36,13 @@ use function Chevere\Parameter\union;
 )]
 final class PetGetController extends Controller
 {
+    public function __invoke(
+        #[StringAttr(description: 'ID of pet to return')]
+        string $petId
+    ): array {
+        return [];
+    }
+
     public static function acceptQuery(): ArrayStringParameterInterface
     {
         return arrayString(
@@ -67,12 +74,5 @@ final class PetGetController extends Controller
             ),
             status: enum('available', 'pending', 'sold'),
         );
-    }
-
-    public function main(
-        #[StringAttr(description: 'ID of pet to return')]
-        string $petId
-    ): array {
-        return [];
     }
 }

@@ -33,6 +33,11 @@ use function Chevere\Parameter\int;
 )]
 final class StoreOrderPostController extends Controller
 {
+    public function __invoke(): array
+    {
+        return [];
+    }
+
     public static function acceptBody(): ArrayParameterInterface
     {
         return arrayp(
@@ -55,10 +60,5 @@ final class StoreOrderPostController extends Controller
             status: enum('placed', 'approved', 'delivered'),
             complete: bool()
         );
-    }
-
-    public function main(): array
-    {
-        return [];
     }
 }

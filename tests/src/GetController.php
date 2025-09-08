@@ -43,6 +43,17 @@ use function Chevere\Parameter\union;
 )]
 class GetController extends Controller
 {
+    public function __invoke(
+        #[StringAttr('/^[0-9]+$/', 'The user integer id')]
+        string $id,
+        #[StringAttr('/^[\w]+$/', 'The user name')]
+        string $name
+    ): array {
+        return [
+            'test' => 'test',
+        ];
+    }
+
     public static function acceptQuery(): ArrayStringParameterInterface
     {
         return arrayString(
@@ -71,16 +82,5 @@ class GetController extends Controller
     public static function return(): ParameterInterface
     {
         return arrayp(test: string('/^test$/'));
-    }
-
-    public function main(
-        #[StringAttr('/^[0-9]+$/', 'The user integer id')]
-        string $id,
-        #[StringAttr('/^[\w]+$/', 'The user name')]
-        string $name
-    ): array {
-        return [
-            'test' => 'test',
-        ];
     }
 }

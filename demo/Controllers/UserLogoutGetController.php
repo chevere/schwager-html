@@ -26,12 +26,12 @@ use function Chevere\Parameter\null;
 )]
 final class UserLogoutGetController extends Controller
 {
+    public function __invoke(): void
+    {
+    }
+
     public static function return(): ParameterInterface
     {
         return null();
-    }
-
-    public function main(): void
-    {
     }
 }

@@ -30,16 +30,16 @@ use function Chevere\Parameter\string;
 )]
 final class StoreInventoryGetController extends Controller
 {
+    public function __invoke(
+    ): array {
+        return [];
+    }
+
     public static function return(): ParameterInterface
     {
         return iterable(
             K: string(),
             V: int(),
         );
-    }
-
-    public function main(
-    ): array {
-        return [];
     }
 }

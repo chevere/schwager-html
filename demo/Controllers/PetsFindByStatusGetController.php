@@ -35,6 +35,11 @@ use function Chevere\Parameter\union;
 )]
 final class PetsFindByStatusGetController extends Controller
 {
+    public function __invoke(): array
+    {
+        return [];
+    }
+
     public static function acceptQuery(): ArrayStringParameterInterface
     {
         return arrayString(
@@ -71,10 +76,5 @@ final class PetsFindByStatusGetController extends Controller
                 )
             )
         );
-    }
-
-    public function main(): array
-    {
-        return [];
     }
 }

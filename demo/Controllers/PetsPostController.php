@@ -35,6 +35,10 @@ use function Chevere\Parameter\union;
 )]
 final class PetsPostController extends Controller
 {
+    public function __invoke(): void
+    {
+    }
+
     public static function acceptBody(): ArrayParameterInterface
     {
         return arrayp(
@@ -64,9 +68,5 @@ final class PetsPostController extends Controller
     public static function return(): ParameterInterface
     {
         return null();
-    }
-
-    public function main(): void
-    {
     }
 }

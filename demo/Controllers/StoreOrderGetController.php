@@ -33,6 +33,13 @@ use function Chevere\Parameter\int;
 )]
 final class StoreOrderGetController extends Controller
 {
+    public function __invoke(
+        #[StringAttr(description: 'ID of pet that needs to be fetched')]
+        string $orderId
+    ): array {
+        return [];
+    }
+
     public static function return(): ParameterInterface
     {
         return arrayp(
@@ -43,12 +50,5 @@ final class StoreOrderGetController extends Controller
             status: enum('placed', 'approved', 'delivered'),
             complete: bool()
         );
-    }
-
-    public function main(
-        #[StringAttr(description: 'ID of pet that needs to be fetched')]
-        string $orderId
-    ): array {
-        return [];
     }
 }

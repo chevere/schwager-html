@@ -32,6 +32,12 @@ use function Chevere\Parameter\string;
 )]
 final class PetDeleteController extends Controller
 {
+    public function __invoke(
+        #[StringAttr(description: 'Pet id to delete')]
+        string $petId
+    ): void {
+    }
+
     public static function acceptBody(): ArrayParameterInterface
     {
         return arrayp(
@@ -42,11 +48,5 @@ final class PetDeleteController extends Controller
     public static function return(): ParameterInterface
     {
         return null();
-    }
-
-    public function main(
-        #[StringAttr(description: 'Pet id to delete')]
-        string $petId
-    ): void {
     }
 }

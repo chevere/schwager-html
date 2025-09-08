@@ -30,13 +30,13 @@ use function Chevere\Parameter\string;
 )]
 final class UserLoginGetController extends Controller
 {
+    public function __invoke(): string
+    {
+        return '';
+    }
+
     public static function return(): ParameterInterface
     {
         return string();
-    }
-
-    public function main(): string
-    {
-        return '';
     }
 }

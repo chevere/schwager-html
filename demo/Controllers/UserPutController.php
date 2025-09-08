@@ -29,14 +29,14 @@ use function Chevere\Parameter\null;
 )]
 final class UserPutController extends Controller
 {
-    public static function return(): ParameterInterface
-    {
-        return null();
-    }
-
-    public function main(
+    public function __invoke(
         #[StringAttr(description: 'name that need to be updated')]
         string $username
     ): void {
+    }
+
+    public static function return(): ParameterInterface
+    {
+        return null();
     }
 }

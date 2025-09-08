@@ -29,14 +29,14 @@ use function Chevere\Parameter\null;
 )]
 final class UserDeleteController extends Controller
 {
-    public static function return(): ParameterInterface
-    {
-        return null();
-    }
-
-    public function main(
+    public function __invoke(
         #[StringAttr(description: 'The name that needs to be deleted')]
         string $username
     ): void {
+    }
+
+    public static function return(): ParameterInterface
+    {
+        return null();
     }
 }
