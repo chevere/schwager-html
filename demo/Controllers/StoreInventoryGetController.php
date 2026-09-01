@@ -35,7 +35,7 @@ final class StoreInventoryGetController extends Controller
         return [];
     }
 
-    public static function return(): ParameterInterface
+    public static function acceptReturn(): ParameterInterface
     {
         return iterable(
             K: string(),

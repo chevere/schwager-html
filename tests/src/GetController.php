@@ -18,7 +18,7 @@ use Chevere\Http\Attributes\Response;
 use Chevere\Http\Controller;
 use Chevere\Http\Header;
 use Chevere\Http\Status;
-use Chevere\Parameter\Attributes\StringAttr;
+use Chevere\Parameter\Attributes\_string;
 use Chevere\Parameter\Interfaces\ArrayParameterInterface;
 use Chevere\Parameter\Interfaces\ArrayStringParameterInterface;
 use Chevere\Parameter\Interfaces\ParameterInterface;
@@ -44,9 +44,9 @@ use function Chevere\Parameter\union;
 class GetController extends Controller
 {
     public function __invoke(
-        #[StringAttr('/^[0-9]+$/', 'The user integer id')]
+        #[_string('/^[0-9]+$/', 'The user integer id')]
         string $id,
-        #[StringAttr('/^[\w]+$/', 'The user name')]
+        #[_string('/^[\w]+$/', 'The user name')]
         string $name
     ): array {
         return [
@@ -79,7 +79,7 @@ class GetController extends Controller
         );
     }
 
-    public static function return(): ParameterInterface
+    public static function acceptReturn(): ParameterInterface
     {
         return arrayp(test: string('/^test$/'));
     }

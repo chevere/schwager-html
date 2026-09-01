@@ -48,7 +48,7 @@ final class UsersPostController extends Controller
         );
     }
 
-    public static function return(): ParameterInterface
+    public static function acceptReturn(): ParameterInterface
     {
         return null();
     }

@@ -35,7 +35,7 @@ final class UserLoginGetController extends Controller
         return '';
     }
 
-    public static function return(): ParameterInterface
+    public static function acceptReturn(): ParameterInterface
     {
         return string();
     }

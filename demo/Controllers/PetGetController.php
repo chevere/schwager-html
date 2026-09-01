@@ -18,7 +18,7 @@ use Chevere\Http\Attributes\Response;
 use Chevere\Http\Controller;
 use Chevere\Http\Header;
 use Chevere\Http\Status;
-use Chevere\Parameter\Attributes\StringAttr;
+use Chevere\Parameter\Attributes\_string;
 use Chevere\Parameter\Interfaces\ArrayStringParameterInterface;
 use Chevere\Parameter\Interfaces\ParameterInterface;
 use function Chevere\Parameter\arrayp;
@@ -37,7 +37,7 @@ use function Chevere\Parameter\union;
 final class PetGetController extends Controller
 {
     public function __invoke(
-        #[StringAttr(description: 'ID of pet to return')]
+        #[_string(description: 'ID of pet to return')]
         string $petId
     ): array {
         return [];
@@ -50,7 +50,7 @@ final class PetGetController extends Controller
         );
     }
 
-    public static function return(): ParameterInterface
+    public static function acceptReturn(): ParameterInterface
     {
         return arrayp(
             id: int(),

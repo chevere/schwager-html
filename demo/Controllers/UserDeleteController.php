@@ -18,7 +18,7 @@ use Chevere\Http\Attributes\Response;
 use Chevere\Http\Controller;
 use Chevere\Http\Header;
 use Chevere\Http\Status;
-use Chevere\Parameter\Attributes\StringAttr;
+use Chevere\Parameter\Attributes\_string;
 use Chevere\Parameter\Interfaces\ParameterInterface;
 use function Chevere\Parameter\null;
 
@@ -30,12 +30,12 @@ use function Chevere\Parameter\null;
 final class UserDeleteController extends Controller
 {
     public function __invoke(
-        #[StringAttr(description: 'The name that needs to be deleted')]
+        #[_string(description: 'The name that needs to be deleted')]
         string $username
     ): void {
     }
 
-    public static function return(): ParameterInterface
+    public static function acceptReturn(): ParameterInterface
     {
         return null();
     }

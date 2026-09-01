@@ -18,7 +18,7 @@ use Chevere\Http\Attributes\Response;
 use Chevere\Http\Controller;
 use Chevere\Http\Header;
 use Chevere\Http\Status;
-use Chevere\Parameter\Attributes\StringAttr;
+use Chevere\Parameter\Attributes\_string;
 use Chevere\Parameter\Interfaces\ArrayParameterInterface;
 use Chevere\Parameter\Interfaces\ParameterInterface;
 use function Chevere\Parameter\arrayp;
@@ -33,7 +33,7 @@ use function Chevere\Parameter\string;
 final class UploadImagePostController extends Controller
 {
     public function __invoke(
-        #[StringAttr(description: 'ID of pet to update')]
+        #[_string(description: 'ID of pet to update')]
         string $petId
     ): array {
         return [];
@@ -47,7 +47,7 @@ final class UploadImagePostController extends Controller
         );
     }
 
-    public static function return(): ParameterInterface
+    public static function acceptReturn(): ParameterInterface
     {
         return arrayp(
             code: int(),

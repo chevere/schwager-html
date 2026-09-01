@@ -18,7 +18,7 @@ use Chevere\Http\Attributes\Response;
 use Chevere\Http\Controller;
 use Chevere\Http\Header;
 use Chevere\Http\Status;
-use Chevere\Parameter\Attributes\StringAttr;
+use Chevere\Parameter\Attributes\_string;
 use Chevere\Parameter\Interfaces\ParameterInterface;
 use function Chevere\Parameter\arrayp;
 use function Chevere\Parameter\int;
@@ -32,13 +32,13 @@ use function Chevere\Parameter\string;
 final class UserGetController extends Controller
 {
     public function __invoke(
-        #[StringAttr(description: 'The name that needs to be fetched')]
+        #[_string(description: 'The name that needs to be fetched')]
         string $username
     ): array {
         return [];
     }
 
-    public static function return(): ParameterInterface
+    public static function acceptReturn(): ParameterInterface
     {
         return arrayp(
             id: int(),

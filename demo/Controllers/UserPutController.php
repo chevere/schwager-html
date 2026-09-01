@@ -18,7 +18,7 @@ use Chevere\Http\Attributes\Response;
 use Chevere\Http\Controller;
 use Chevere\Http\Header;
 use Chevere\Http\Status;
-use Chevere\Parameter\Attributes\StringAttr;
+use Chevere\Parameter\Attributes\_string;
 use Chevere\Parameter\Interfaces\ParameterInterface;
 use function Chevere\Parameter\null;
 
@@ -30,12 +30,12 @@ use function Chevere\Parameter\null;
 final class UserPutController extends Controller
 {
     public function __invoke(
-        #[StringAttr(description: 'name that need to be updated')]
+        #[_string(description: 'name that need to be updated')]
         string $username
     ): void {
     }
 
-    public static function return(): ParameterInterface
+    public static function acceptReturn(): ParameterInterface
     {
         return null();
     }

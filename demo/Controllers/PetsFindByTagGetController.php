@@ -47,7 +47,7 @@ final class PetsFindByTagGetController extends Controller
         );
     }
 
-    public static function return(): ParameterInterface
+    public static function acceptReturn(): ParameterInterface
     {
         return union(
             arrayp(),
