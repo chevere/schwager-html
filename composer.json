@@ -17,11 +17,11 @@
         "chevere/caller": "^1.0.0",
         "chevere/container": "^1.0.0",
         "chevere/data-structure": "^1.1.1",
-        "chevere/http": "^0.8.x-dev",
-        "chevere/parameter": "^2.0.0",
+        "chevere/http": "^0.9.x-dev",
+        "chevere/parameter": "^2.0.x-dev",
         "chevere/router": "^0.10.x-dev",
         "chevere/schwager": "^0.3.x-dev",
-        "chevere/standard": "^1.0.1",
+        "chevere/standard": "^1.0.x-dev",
         "symfony/yaml": "^6|^7"
     },
     "require-dev": {
